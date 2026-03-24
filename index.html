@@ -68,22 +68,24 @@ nav a:hover{color:var(--gold-light)}
 .stat-l{font-size:9px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.55);margin-top:4px}
 
 /* SECTION */
-.section-head{text-align:center;margin-bottom:56px}
+.section-head{text-align:center;margin-bottom:20px}
 .s-eyebrow{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
 .s-title{font-family:'Tiro Devanagari Marathi',serif;font-size:clamp(26px,3vw,40px);color:var(--brown-dark);line-height:1.2}
 .s-title.wht{color:var(--white)}
 .s-line{width:50px;height:2px;background:var(--gold);margin:14px auto 0;border-radius:1px}
 
 /* PRODUCTS */
-.products-section{padding:90px 40px;background:var(--cream)}
-.cat-tabs{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-bottom:50px}
+.products-section{padding:60px 40px 40px;background:var(--cream)}
+.cat-tabs{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-bottom:20px}
 .cat-tab{padding:10px 24px;border:2px solid var(--cream2);border-radius:3px;font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;cursor:pointer;transition:all .25s;background:var(--white);color:var(--brown)}
 .cat-tab.active,.cat-tab:hover{background:var(--brown-dark);border-color:var(--brown-dark);color:var(--white)}
-.products-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:32px;max-width:1400px;margin:0 auto}
+.products-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;max-width:1400px;margin:0 auto}@media(max-width:768px){.products-grid{grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px}}
 .p-card{background:var(--white);border-radius:12px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,.07);transition:all .35s;border:1.5px solid transparent;position:relative}
 .p-card:hover{transform:translateY(-8px);box-shadow:0 16px 40px rgba(201,151,58,.2);border-color:var(--gold)}
 .p-card-top{height:4px;background:linear-gradient(90deg,var(--gold),var(--gold-light))}
 .p-img{width:100%;height:200px;object-fit:cover;transition:transform .5s;display:block}
+.p-card:not(:has(>.p-img)) .p-img{display:none!important}
+.p-img:empty{display:none!important}
 .p-card:hover .p-img{transform:scale(1.04)}
 .p-emoji-box{width:100%;height:200px;display:flex;align-items:center;justify-content:center;font-size:72px}
 .p-body{padding:22px 24px 24px}
@@ -99,14 +101,14 @@ nav a:hover{color:var(--gold-light)}
 .p-badge.green{background:var(--green)}
 
 /* DIVIDER */
-.divider{background:var(--brown-dark);padding:60px 40px;text-align:center;position:relative;overflow:hidden}
+.divider{background:var(--brown-dark);padding:40px 40px;text-align:center;position:relative;overflow:hidden}
 .divider::before{content:'';position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1630462622197-df354df3bf40?w=1600&q=80') center/cover;opacity:.1}
 .divider-inner{position:relative;z-index:2}
 .divider h2{font-family:'Tiro Devanagari Marathi',serif;font-size:clamp(24px,3vw,38px);color:var(--white);margin-bottom:12px}
 .divider p{color:rgba(255,255,255,.65);font-size:14px;margin-bottom:30px;letter-spacing:.5px}
 
 /* ORDER */
-.order-section{background:linear-gradient(135deg,var(--brown-dark) 0%,var(--brown-mid) 100%);padding:90px 40px;position:relative;overflow:hidden}
+.order-section{background:linear-gradient(135deg,var(--brown-dark) 0%,var(--brown-mid) 100%);padding:60px 40px;position:relative;overflow:hidden}
 .order-section::before{content:'';position:absolute;top:-100px;right:-100px;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(201,151,58,.12) 0%,transparent 70%)}
 .lang-toggle{display:flex;justify-content:center;margin-bottom:40px}
 .lang-btn{padding:12px 32px;font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;cursor:pointer;border:2px solid var(--gold);background:transparent;color:var(--gold);transition:all .25s}
@@ -136,7 +138,7 @@ nav a:hover{color:var(--gold-light)}
 .submit-btn:hover{transform:translateY(-3px);box-shadow:0 14px 36px rgba(37,211,102,.45)}
 
 /* CONTACT */
-.contact-strip{background:var(--brown-dark);padding:60px 40px;display:flex;justify-content:center;gap:50px;flex-wrap:wrap;align-items:center;border-top:3px solid var(--gold)}
+.contact-strip{background:var(--brown-dark);padding:40px;display:flex;justify-content:center;gap:50px;flex-wrap:wrap;align-items:center;border-top:3px solid var(--gold)}
 .c-block{text-align:center}
 .c-label{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.45);margin-bottom:8px}
 .c-link{font-family:'Playfair Display',serif;font-size:28px;font-weight:900;color:var(--gold-light);text-decoration:none;transition:color .3s;display:block}
