@@ -2,6 +2,7 @@
 <html lang="mr">
 <head>
 <meta charset="UTF-8">
+<meta name="google-site-verification" content="IQKvqRiH_udHoLS61E8YX5a9eeZkaUj0A_UuadxvLxY" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="google-site-verification" content="IQKvqRiH_udHoLS61E8YX5a9eeZkaUj0A_UuadxvLxY" />
 <title>माऊली गृहउद्योग | Homemade Snacks & Pickles</title>
@@ -75,40 +76,48 @@ nav a:hover{color:var(--gold-light)}
 .s-line{width:50px;height:2px;background:var(--gold);margin:14px auto 0;border-radius:1px}
 
 /* PRODUCTS */
-.products-section{padding:60px 40px 40px;background:var(--cream)}
-.cat-tabs{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-bottom:20px}
+.products-section{padding:60px 40px 60px;background:var(--cream)}
+.cat-tabs{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-bottom:32px}
 .cat-tab{padding:10px 24px;border:2px solid var(--cream2);border-radius:3px;font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;cursor:pointer;transition:all .25s;background:var(--white);color:var(--brown)}
 .cat-tab.active,.cat-tab:hover{background:var(--brown-dark);border-color:var(--brown-dark);color:var(--white)}
-.products-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;max-width:1400px;margin:0 auto}@media(max-width:768px){.products-grid{grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px}}
-.p-card{background:var(--white);border-radius:12px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,.07);transition:all .35s;border:1.5px solid transparent;position:relative}
+.products-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:24px;max-width:1400px;margin:0 auto}
+@media(max-width:768px){.products-grid{grid-template-columns:repeat(2,1fr);gap:14px}}
+@media(max-width:460px){.products-grid{grid-template-columns:1fr}}
+
+.p-card{background:var(--white);border-radius:12px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,.07);transition:all .35s;border:1.5px solid transparent;position:relative;display:flex;flex-direction:column}
 .p-card:hover{transform:translateY(-8px);box-shadow:0 16px 40px rgba(201,151,58,.2);border-color:var(--gold)}
-.p-card-top{height:4px;background:linear-gradient(90deg,var(--gold),var(--gold-light))}
-.p-img{width:100%;height:200px;object-fit:cover;transition:transform .5s;display:block}
-.p-card:not(:has(>.p-img)) .p-img{display:none!important}
-.p-img:empty{display:none!important}
-.p-card:hover .p-img{transform:scale(1.04)}
-.p-emoji-box{width:100%;height:200px;display:flex;align-items:center;justify-content:center;font-size:72px}
-.p-body{padding:22px 24px 24px}@media(max-width:768px){.p-body{padding:14px 12px 16px}.p-emoji-box{height:140px;font-size:50px}.p-name{font-size:14px;margin-bottom:6px}.p-desc{font-size:11px;margin-bottom:8px;line-height:1.4}.p-feats{font-size:8px;margin-bottom:8px}.p-price{font-size:18px;margin-bottom:12px}.p-btn{padding:10px;font-size:9px}}
+.p-card-top{height:4px;background:linear-gradient(90deg,var(--gold),var(--gold-light));flex-shrink:0}
+.p-emoji-box{width:100%;height:160px;display:flex;align-items:center;justify-content:center;font-size:64px;flex-shrink:0}
+.p-body{padding:18px 20px 22px;display:flex;flex-direction:column;flex:1}
+@media(max-width:768px){
+  .p-body{padding:12px 12px 14px}
+  .p-emoji-box{height:120px;font-size:48px}
+  .p-name{font-size:14px!important;margin-bottom:4px!important}
+  .p-desc{font-size:11px!important;margin-bottom:6px!important}
+  .p-feats{font-size:8px!important;margin-bottom:6px!important}
+  .p-price{font-size:18px!important;margin-bottom:10px!important}
+  .p-btn{padding:10px!important;font-size:9px!important}
+}
 .p-cat{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:6px}
 .p-name{font-family:'Tiro Devanagari Marathi',serif;font-size:20px;color:var(--brown-dark);margin-bottom:8px;line-height:1.2}
-.p-desc{font-size:12px;color:#888;line-height:1.6;margin-bottom:14px}
-.p-feats{font-size:10px;letter-spacing:1px;color:var(--brown);text-transform:uppercase;margin-bottom:14px;font-weight:600}
-.p-price{font-family:'Playfair Display',serif;font-size:26px;color:var(--brown);font-weight:900;margin-bottom:18px}
+.p-desc{font-size:12px;color:#888;line-height:1.6;margin-bottom:12px;flex:1}
+.p-feats{font-size:10px;letter-spacing:1px;color:var(--brown);text-transform:uppercase;margin-bottom:12px;font-weight:600}
+.p-price{font-family:'Playfair Display',serif;font-size:24px;color:var(--brown);font-weight:900;margin-bottom:16px}
 .p-price span{font-size:13px;color:#999;font-family:'Josefin Sans',sans-serif;font-weight:400;margin-left:4px}
-.p-btn{width:100%;padding:12px;background:linear-gradient(135deg,var(--gold),var(--gold-light));color:var(--brown-dark);border:none;border-radius:4px;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;cursor:pointer;transition:all .3s}
+.p-btn{width:100%;padding:12px;background:linear-gradient(135deg,var(--gold),var(--gold-light));color:var(--brown-dark);border:none;border-radius:4px;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;cursor:pointer;transition:all .3s;margin-top:auto}
 .p-btn:hover{box-shadow:0 6px 20px rgba(201,151,58,.4);transform:translateY(-2px)}
 .p-badge{position:absolute;top:12px;right:12px;background:var(--red);color:var(--white);font-size:9px;font-weight:700;letter-spacing:1px;padding:4px 10px;border-radius:2px;text-transform:uppercase}
 .p-badge.green{background:var(--green)}
 
 /* DIVIDER */
-.divider{background:var(--brown-dark);padding:40px 40px;text-align:center;position:relative;overflow:hidden}
+.divider{background:var(--brown-dark);padding:60px 40px;text-align:center;position:relative;overflow:hidden}
 .divider::before{content:'';position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1630462622197-df354df3bf40?w=1600&q=80') center/cover;opacity:.1}
 .divider-inner{position:relative;z-index:2}
 .divider h2{font-family:'Tiro Devanagari Marathi',serif;font-size:clamp(24px,3vw,38px);color:var(--white);margin-bottom:12px}
 .divider p{color:rgba(255,255,255,.65);font-size:14px;margin-bottom:30px;letter-spacing:.5px}
 
 /* ORDER */
-.order-section{background:linear-gradient(135deg,var(--brown-dark) 0%,var(--brown-mid) 100%);padding:60px 40px;position:relative;overflow:hidden}
+.order-section{background:linear-gradient(135deg,var(--brown-dark) 0%,var(--brown-mid) 100%);padding:70px 40px;position:relative;overflow:hidden}
 .order-section::before{content:'';position:absolute;top:-100px;right:-100px;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(201,151,58,.12) 0%,transparent 70%)}
 .lang-toggle{display:flex;justify-content:center;margin-bottom:40px}
 .lang-btn{padding:12px 32px;font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;cursor:pointer;border:2px solid var(--gold);background:transparent;color:var(--gold);transition:all .25s}
@@ -132,13 +141,13 @@ nav a:hover{color:var(--gold-light)}
 .pcheck-top label{cursor:pointer;font-size:12px;font-weight:600;color:var(--brown-dark);line-height:1.3;margin:0;text-transform:none;letter-spacing:.3px}
 .qty-input{width:100%;padding:8px 10px;border:1.5px solid #ddd;border-radius:5px;font-size:13px;font-family:'Josefin Sans',sans-serif}
 .qty-input:focus{outline:none;border-color:var(--gold)}
-.grp-label{grid-column:1/-1;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--brown);padding:8px 0 4px;border-bottom:1.5px solid #e8d8c0;margin-bottom:4px}
+.grp-label{grid-column:1/-1;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--brown);padding:10px 0 6px;border-bottom:1.5px solid #e8d8c0;margin-bottom:4px}
 .submit-wrap{margin-top:28px}
 .submit-btn{width:100%;padding:18px;font-size:14px;font-weight:700;letter-spacing:2px;text-transform:uppercase;border:none;border-radius:6px;cursor:pointer;background:linear-gradient(135deg,#25D366,#1DA851);color:var(--white);display:flex;align-items:center;justify-content:center;gap:10px;transition:all .3s;box-shadow:0 8px 24px rgba(37,211,102,.3)}
 .submit-btn:hover{transform:translateY(-3px);box-shadow:0 14px 36px rgba(37,211,102,.45)}
 
 /* CONTACT */
-.contact-strip{background:var(--brown-dark);padding:40px;display:flex;justify-content:center;gap:50px;flex-wrap:wrap;align-items:center;border-top:3px solid var(--gold)}
+.contact-strip{background:var(--brown-dark);padding:50px 40px;display:flex;justify-content:center;gap:50px;flex-wrap:wrap;align-items:center;border-top:3px solid var(--gold)}
 .c-block{text-align:center}
 .c-label{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.45);margin-bottom:8px}
 .c-link{font-family:'Playfair Display',serif;font-size:28px;font-weight:900;color:var(--gold-light);text-decoration:none;transition:color .3s;display:block}
@@ -154,110 +163,7 @@ footer{background:var(--brown-dark);padding:28px 40px 22px;border-top:1px solid 
 .footer-links a:hover{color:var(--gold-light)}
 
 /* SCROLL REVEAL */
-.sr{opacity:0;transform:translateY(28px);transition:all .7s cubic-bezier(.34,1.56,.64,1)}
-.sr.in{opacity:1;transform:none}
-.product-card {
-            background: white;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
-            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-            cursor: pointer;
-            position: relative;
-            border: 2px solid transparent;
-        }
-
-        .product-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, var(--primary-gold), var(--accent-orange));
-            z-index: 10;
-        }
-
-        .product-card:hover {
-            transform: translateY(-15px) scale(1.02);
-            box-shadow: 0 30px 60px rgba(212, 175, 55, 0.3);
-            border-color: var(--primary-gold);
-        }
-
-        .product-image {
-            width: 100%;
-            height: 220px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 80px;
-            position: relative;
-            overflow: hidden;
-            font-weight: bold;
-        }
-
-        .product-image::after {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -50%;
-            width: 200px;
-            height: 200px;
-            background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 70%);
-            border-radius: 50%;
-            animation: shine 3s infinite;
-        }
-
-        @keyframes shine {
-            0%, 100% { transform: translate(0, 0); }
-            50% { transform: translate(20px, 20px); }
-        }
-
-        .product-info {
-            padding: 30px;
-        }
-
-        .product-name {
-            font-family: 'Playfair Display', serif;
-            font-size: 24px;
-            font-weight: 900;
-            color: var(--primary-brown);
-            margin-bottom: 10px;
-            letter-spacing: 1px;
-        }
-
-        .product-desc {
-            font-size: 14px;
-            color: #666;
-            margin-bottom: 15px;
-            line-height: 1.6;
-        }
-
-        .product-features {
-            font-size: 12px;
-            color: var(--accent-orange);
-            margin-bottom: 15px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            font-weight: 600;
-        }
-
-        .product-price {
-            font-family: 'Playfair Display', serif;
-            font-size: 28px;
-            font-weight: 900;
-            color: var(--accent-orange);
-            margin-bottom: 20px;
-            letter-spacing: 1px;
-        }
-
-        .product-card .cta-button {
-            width: 100%;
-            padding: 14px;
-            margin: 0;
-            animation: none;
-        }
-
+.sr{opacity:1;transform:none}
 
 @media(max-width:900px){
   .hero-right{display:none}
@@ -298,8 +204,8 @@ footer{background:var(--brown-dark);padding:28px 40px 22px;border-top:1px solid 
   <div class="hero-overlay"></div>
   <div class="hero-split">
     <div class="hero-left">
-      <p class="hero-sub"> Arvi, Maharashtra </p>
-      <h1>घरचं <span>लोणचं</span>,<br>घरची <span>चव</span> </h1>
+      <div class="eyebrow"><span>Arvi, Maharashtra</span></div>
+      <h1>घरचं <span>लोणचं</span>,<br>घरची <span>चव</span></h1>
       <p class="hero-sub">माऊली गृहउद्योगचे सर्व पदार्थ शुद्ध, ताजे आणि कोणत्याही preservative शिवाय बनवलेले आहेत. आजीच्या हाताची खरी चव आता घरपोच!</p>
       <div class="badges">
         <div class="badge">✓ 100% घरगुती</div>
@@ -321,299 +227,36 @@ footer{background:var(--brown-dark);padding:28px 40px 22px;border-top:1px solid 
 <!-- STATS -->
 <div class="stats">
   <div class="stat"><div class="stat-n">500+</div><div class="stat-l">Happy Customers</div></div>
-  <div class="stat"><div class="stat-n">25+</div><div class="stat-l">Products</div></div>
+  <div class="stat"><div class="stat-n">26+</div><div class="stat-l">Products</div></div>
   <div class="stat"><div class="stat-n">100%</div><div class="stat-l">Natural</div></div>
+  <div class="stat"><div class="stat-n">0</div><div class="stat-l">Preservatives</div></div>
 </div>
 
 <!-- PRODUCTS -->
 <section class="products-section" id="products">
   <div class="section-head">
-    <h1 class="s-eyebrow">Our Specialties</h1>
-	  <div>10 किलोवर विशेष सूट! 🎁</div>
-    <p>Bulk order साठी आत्ताच संपर्क करा आणि खास घरगुती चव घरपोच मिळवा</p>
+    <div class="s-eyebrow">Our Specialties</div>
     <h2 class="s-title">आमचे उत्पादने</h2>
     <div class="s-line"></div>
+    <p style="margin-top:14px;font-size:13px;color:var(--brown);font-weight:600">🎁 10 किलोवर विशेष सूट! · Bulk order साठी संपर्क करा</p>
   </div>
+
   <div class="cat-tabs">
     <div class="cat-tab active" onclick="filterCat('all',this)">सर्व / All</div>
     <div class="cat-tab" onclick="filterCat('lonche',this)">लोणचे / Pickles</div>
     <div class="cat-tab" onclick="filterCat('snacks',this)">स्नॅक्स / Snacks</div>
     <div class="cat-tab" onclick="filterCat('special',this)">विशेष / Specials</div>
-	<div class="products-grid">
-                <div class="product-card scroll-reveal">
-                    <div class="product-info">
-                        <div class="product-name">मुगवडी</div>
-                        <div class="product-features">हलवे • कुरकुरीत • गरम</div>
-                        <div class="product-desc">परंपरागत मुगवडी - पारंपरिक स्वाद आणि गुणवत्ता</div>
-                        <div class="product-price">₹350/kg</div>
-                       <a href="#order" class="nav-cta" onclick="scrollToOrder('मुगवडी - ₹350/kg')">ऑर्डर करा</a>
-                    </div>
-                </div>
-
-                <div class="product-card scroll-reveal">
-           
-                    <div class="product-info">
-                        <div class="product-name">कुरडई (साचावरची)</div>
-                        <div class="product-features">कुरकुरीत • ताजी • हलवे</div>
-                        <div class="product-desc">साचावरची कुरडई - खरी घरगुती स्वाद</div>
-                        <div class="product-price">₹350/kg</div>
-                       <a href="#order" class="nav-cta" onclick="scrollToOrder('कुरडई (साचावरची) - ₹350/kg')">ऑर्डर करा</a>
-                    </div>
-                </div>
-
-                <div class="product-card scroll-reveal">
-                  
-                    <div class="product-info">
-                        <div class="product-name">कुरडई (पातळ)</div>
-                        <div class="product-features">पातळ • हलवे • कुरकुरीत</div>
-                        <div class="product-desc">पातळ कुरडई - सौम्य आणि स्वादिष्ट</div>
-                        <div class="product-price">₹350/kg</div>
-                        <a href="#order" class="nav-cta" onclick="scrollToOrder('कुरडई (पातळ) - ₹350/kg')">ऑर्डर करा</a>
-                    </div>
-                </div>
-
-                <div class="product-card scroll-reveal">
-                   
-                    <div class="product-info">
-                        <div class="product-name">उडीद मूग पापड</div>
-                        <div class="product-features">पापड • ताजी • हलवे</div>
-                        <div class="product-desc">उडीद मूग पापड - आरोग्य आणि स्वाद</div>
-                        <div class="product-price">₹450/kg</div>
-                      <a href="#order" class="nav-cta" onclick="scrollToOrder('उडीद मूग पापड - ₹450/kg')">ऑर्डर करा</a>
-                    </div>
-                </div>
-
-                <div class="product-card scroll-reveal">
-                   
-                    <div class="product-info">
-                        <div class="product-name">धापोडे</div>
-                        <div class="product-features">परंपरागत • कुरकुरीत • लाल</div>
-                        <div class="product-desc">धापोडे - महाराष्ट्रीय प्रिय स्नॅक्स</div>
-                        <div class="product-price">₹450/kg</div>
-                        <a href="#order" class="nav-cta" onclick="scrollToOrder('धापोडे - ₹450/kg')">ऑर्डर करा</a>
-                    </div>
-                </div>
-
-                <div class="product-card scroll-reveal">
-                   
-                    <div class="product-info">
-                        <div class="product-name">बटाटा चिप्स</div>
-                        <div class="product-features">ताजे आलू • कुरकुरीत • स्वादिष्ट</div>
-                        <div class="product-desc">बटाटा चिप्स - सर्वांचा पसंदीचा!</div>
-                        <div class="product-price">₹450/kg</div>
-                       <a href="#order" class="nav-cta" onclick="scrollToOrder('बटाटा चिप्स - ₹450/kg')">ऑर्डर करा</a>
-                    </div>
-                </div>
-
-                <div class="product-card scroll-reveal">
-                   
-                    <div class="product-info">
-                        <div class="product-name">शेवया (तुपाच्या)</div>
-                        <div class="product-features">तुप • महक • पारंपरिक</div>
-                        <div class="product-desc">शेवया तुपाच्या - स्वर्गीय स्वाद</div>
-                        <div class="product-price">₹600/kg</div>
-               <a href="#order" class="nav-cta" onclick="scrollToOrder('शेवया (तुपाच्या) - ₹600/kg')">ऑर्डर करा</a>
-                    </div>
-                </div>
-
-                <div class="product-card scroll-reveal">
-                   
-                    <div class="product-info">
-                        <div class="product-name">शेवया (रवा, मशीन)</div>
-                        <div class="product-features">मशीन • बारीक • कुरकुरीत</div>
-                        <div class="product-desc">शेवया रवा मशीन - अचूक गुणवत्ता</div>
-                        <div class="product-price">₹250/kg</div>
-                        <a href="#order" class="nav-cta" onclick="scrollToOrder('शेवया (रवा, मशीन) - ₹250/kg')">ऑर्डर करा</a>
-                    </div>
-                </div>
-
-                <div class="product-card scroll-reveal">
-                   
-                    <div class="product-info">
-                        <div class="product-name">शेवया (गहू रवा)</div>
-                        <div class="product-features">गहू • पौष्टिक • सोयाचे</div>
-                        <div class="product-desc">शेवया गहू रवा - आरोग्यकर पर्याय</div>
-                        <div class="product-price">₹230/kg</div>
-                       <a href="#order" class="nav-cta" onclick="scrollToOrder('शेवया (गहू रवा) - ₹230/kg')">ऑर्डर करा</a>
-                    </div>
-                </div>
-
-                <div class="product-card scroll-reveal">
-                
-                    <div class="product-info">
-                        <div class="product-name">साबुदाणा बटाटा पापड</div>
-                        <div class="product-features">पापड • कुरकुरीत • पाकीट</div>
-                        <div class="product-desc">साबुदाणा बटाटा पापड - सोयाचे आणि स्वादिष्ट</div>
-                        <div class="product-price">₹250/पाकीट</div>
-                        <a href="#order" class="nav-cta" onclick="scrollToOrder('साबुदाणा बटाटा पापड - ₹250/पाकीट')">ऑर्डर करा</a>
-                    </div>
-                </div>
-
-                <div class="product-card scroll-reveal">
-                  
-                    <div class="product-info">
-                        <div class="product-name">साबुदाणा भगर चकली</div>
-                        <div class="product-features">चकली • परंपरागत • घरगुती</div>
-                        <div class="product-desc">साबुदाणा भगर चकली - पारंपरिक आणि स्वादिष्ट</div>
-                        <div class="product-price">₹350/kg</div>
-                        <a href="#order" class="nav-cta" onclick="scrollToOrder('साबुदाणा भगर चकली - ₹350/kg')">ऑर्डर करा</a>
-                    </div>
-                </div>
-
-                <div class="product-card scroll-reveal">
-                   
-                    <div class="product-info">
-                        <div class="product-name">सरगुंडे</div>
-                        <div class="product-features">कुरकुरीत • ताजे • गरम</div>
-                        <div class="product-desc">सरगुंडे - सर्वांचा प्रिय पारंपरिक स्नॅक्स</div>
-                        <div class="product-price">₹400/kg</div>
-                        <a href="#order" class="nav-cta" onclick="scrollToOrder('सरगुंडे - ₹400/kg')">ऑर्डर करा</a>
-                    </div>
-                </div>
-
-                <div class="product-card scroll-reveal">
-                   
-                    <div class="product-info">
-                        <div class="product-name">सातूचे पीठ</div>
-                        <div class="product-features">पीठ • पौष्टिक • परंपरागत</div>
-                        <div class="product-desc">सातूचे पीठ - आरोग्य आणि पोषण</div>
-                        <div class="product-price">₹500/kg</div>
-                        <a href="#order" class="nav-cta" onclick="scrollToOrder('सातूचे पीठ - ₹500/kg')">ऑर्डर करा</a>
-                    </div>
-                </div>
-
-                <div class="product-card scroll-reveal">
-                   
-                    <div class="product-info">
-                        <div class="product-name">खारोडी</div>
-                        <div class="product-features">कुरकुरीत • खारी • स्वादिष्ट</div>
-                        <div class="product-desc">खारोडी - परंपरागत महाराष्ट्रीय स्नॅक्स</div>
-                        <div class="product-price">₹400/kg</div>
-                       <a href="#order" class="nav-cta" onclick="scrollToOrder('खारोडी - ₹400/kg')">ऑर्डर करा</a>
-                    </div>
-                </div>
-
-                <div class="product-card scroll-reveal">
-                 
-                    <div class="product-info">
-                        <div class="product-name">मेतकूट</div>
-                        <div class="product-features">मेथी • ताजे • पारंपरिक</div>
-                        <div class="product-desc">मेतकूट - मेथीचा सुगंध आणि स्वाद</div>
-                        <div class="product-price">₹400/kg</div>
-                        <a href="#order" class="nav-cta" onclick="scrollToOrder('मेतकूट - ₹400/kg')">ऑर्डर करा</a>
-                    </div>
-                </div>
-				<div class="product-card scroll-reveal">
-                   
-                    <div class="product-info">
-                        <div class="product-name">आंबा लोणचे</div>
-                        <div class="product-features">स्वादिष्ट</div>
-                        <div class="product-desc">परंपरागत महाराष्ट्रीय </div>
-                        <div class="product-price">₹350/kg</div>
-                       <a href="#order" class="nav-cta" onclick="scrollToOrder('आंबा लोणचे - ₹350/kg')">ऑर्डर करा</a>
-                    </div>
-                </div>
-				
-				<div class="product-card scroll-reveal">
-                   
-                    <div class="product-info">
-                        <div class="product-name">लिंबू लोणचे</div>
-                        <div class="product-features">स्वादिष्ट</div>
-                        <div class="product-desc">परंपरागत महाराष्ट्रीय </div>
-                        <div class="product-price">₹300/kg</div>
-                       <a href="#order" class="nav-cta" onclick="scrollToOrder('लिंबू लोणचे - ₹300/kg')">ऑर्डर करा</a>
-                    </div>
-                </div>
-				
-				 <div class="product-card scroll-reveal">
-                   
-                    <div class="product-info">
-                        <div class="product-name">आवळा लोणचे</div>
-                        <div class="product-features">स्वादिष्ट</div>
-                        <div class="product-desc">परंपरागत महाराष्ट्रीय </div>
-                        <div class="product-price">₹350/kg</div>
-                       <a href="#order" class="nav-cta" onclick="scrollToOrder('आवळा लोणचे - ₹350/kg')">ऑर्डर करा</a>
-                    </div>
-                </div>
-				
-				<div class="product-card scroll-reveal">
-                   
-                    <div class="product-info">
-                        <div class="product-name">मिरची लोणचे</div>
-                        <div class="product-features">स्वादिष्ट</div>
-                        <div class="product-desc">परंपरागत महाराष्ट्रीय </div>
-                        <div class="product-price">₹350/kg</div>
-                       <a href="#order" class="nav-cta" onclick="scrollToOrder('मिरची लोणचे - ₹350/kg')">ऑर्डर करा</a>
-                    </div>
-                </div>
-				
-				<div class="product-card scroll-reveal">
-                   
-                    <div class="product-info">
-                        <div class="product-name">मिक्स लोणचे</div>
-                        <div class="product-features">स्वादिष्ट</div>
-                        <div class="product-desc">परंपरागत महाराष्ट्रीय </div>
-                        <div class="product-price">₹350/kg</div>
-                       <a href="#order" class="nav-cta" onclick="scrollToOrder('मिक्स लोणचे - ₹350/kg')">ऑर्डर करा</a>
-                    </div>
-                </div>
-				
-				<div class="product-card scroll-reveal">
-                   
-                    <div class="product-info">
-                        <div class="product-name">साखर आंबा</div>
-                        <div class="product-features">स्वादिष्ट</div>
-                        <div class="product-desc">परंपरागत महाराष्ट्रीय </div>
-                        <div class="product-price">₹350/kg</div>
-                       <a href="#order" class="nav-cta" onclick="scrollToOrder('साखर आंबा- ₹350/kg')">ऑर्डर करा</a>
-                    </div>
-                </div>
-				
-				<div class="product-card scroll-reveal">
-                   
-                    <div class="product-info">
-                        <div class="product-name">वऱ्हाडी लाल ठेचा</div>
-                        <div class="product-features">स्वादिष्ट</div>
-                        <div class="product-desc">परंपरागत महाराष्ट्रीय </div>
-                        <div class="product-price">₹350/kg</div>
-                       <a href="#order" class="nav-cta" onclick="scrollToOrder('वऱ्हाडी लाल ठेचा- ₹350/kg')">ऑर्डर करा</a>
-                    </div>
-                </div>
-				
-				<div class="product-card scroll-reveal">
-                   
-                    <div class="product-info">
-                        <div class="product-name">आवळा मुरब्बा</div>
-                        <div class="product-features">स्वादिष्ट</div>
-                        <div class="product-desc">परंपरागत महाराष्ट्रीय </div>
-                        <div class="product-price">₹400/kg</div>
-                       <a href="#order" class="nav-cta" onclick="scrollToOrder('आवळा मुरब्बा- ₹400/kg')">ऑर्डर करा</a>
-                    </div>
-                </div>
-				
-				<div class="product-card scroll-reveal">
-                   
-                    <div class="product-info">
-                        <div class="product-name">दही मिरची</div>
-                        <div class="product-features">स्वादिष्ट</div>
-                        <div class="product-desc">परंपरागत महाराष्ट्रीय </div>
-                        <div class="product-price">₹300/kg</div>
-                       <a href="#order" class="nav-cta" onclick="scrollToOrder('दही मिरची- ₹400/kg')">ऑर्डर करा</a>
-                    </div>
-                </div>
-            </div>
-        </div>
   </div>
+
   <div class="products-grid" id="prodGrid">
 
-    <!-- PICKLES -->
+    <!-- ===== PICKLES / लोणचे ===== -->
     <div class="p-card sr" data-cat="lonche">
       <div class="p-card-top"></div>
-      <img class="p-img" src="https://images.unsplash.com/photo-1601001435957-74f0958ad9cb?w=600&q=80" alt="Amba Lonche" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
       <div class="p-body">
         <div class="p-cat">लोणचे • Pickle</div>
         <div class="p-name">आंबा लोणचे</div>
-        <div class="p-desc">ताज्या कैरीपासून बनवलेले पारंपरिक आंबा लोणचे — तिखट, आंबट, जायकेदार!</div>
+        <div class="p-desc">ताज्या कैरीपासून बनवलेले पारंपरिक लोणचे — तिखट, आंबट, जायकेदार!</div>
         <div class="p-feats">तिखट • आंबट • पारंपरिक</div>
         <div class="p-price">₹350 <span>/ किलो</span></div>
         <button class="p-btn" onclick="scrollOrder()">ऑर्डर करा</button>
@@ -634,6 +277,7 @@ footer{background:var(--brown-dark);padding:28px 40px 22px;border-top:1px solid 
 
     <div class="p-card sr" data-cat="lonche">
       <div class="p-card-top"></div>
+   
       <div class="p-body">
         <div class="p-cat">लोणचे • Pickle</div>
         <div class="p-name">आवळा लोणचे</div>
@@ -646,7 +290,6 @@ footer{background:var(--brown-dark);padding:28px 40px 22px;border-top:1px solid 
 
     <div class="p-card sr" data-cat="lonche">
       <div class="p-card-top"></div>
-      <img class="p-img" src="https://images.unsplash.com/photo-1589302168068-964664d93dc0?w=600&q=80" alt="Mirchi Lonche" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
       <div class="p-body">
         <div class="p-cat">लोणचे • Pickle</div>
         <div class="p-name">मिरची लोणचे</div>
@@ -659,7 +302,6 @@ footer{background:var(--brown-dark);padding:28px 40px 22px;border-top:1px solid 
 
     <div class="p-card sr" data-cat="lonche">
       <div class="p-card-top"></div>
-    
       <div class="p-body">
         <div class="p-cat">लोणचे • Pickle</div>
         <div class="p-name">मिक्स लोणचे</div>
@@ -673,7 +315,6 @@ footer{background:var(--brown-dark);padding:28px 40px 22px;border-top:1px solid 
 
     <div class="p-card sr" data-cat="lonche">
       <div class="p-card-top"></div>
-      
       <div class="p-body">
         <div class="p-cat">लोणचे • Pickle</div>
         <div class="p-name">लसूण लोणचे</div>
@@ -684,16 +325,15 @@ footer{background:var(--brown-dark);padding:28px 40px 22px;border-top:1px solid 
       </div>
     </div>
 
-    <!-- SPECIALS -->
+    <!-- ===== SPECIALS / विशेष ===== -->
     <div class="p-card sr" data-cat="special">
       <div class="p-card-top"></div>
-    
       <div class="p-body">
         <div class="p-cat">विशेष • Special</div>
         <div class="p-name">दही मिरची</div>
         <div class="p-desc">दह्यात मुरवलेल्या मिरच्या — वेगळ्याच चवीचा एक unique पदार्थ!</div>
         <div class="p-feats">दही • मिरची • Unique</div>
-        <div class="p-price">₹300 <span>/ पाकीट</span></div>
+        <div class="p-price">₹300 <span>/ किलो</span></div>
         <button class="p-btn" onclick="scrollOrder()">ऑर्डर करा</button>
         <div class="p-badge">New</div>
       </div>
@@ -701,7 +341,6 @@ footer{background:var(--brown-dark);padding:28px 40px 22px;border-top:1px solid 
 
     <div class="p-card sr" data-cat="special">
       <div class="p-card-top"></div>
- 
       <div class="p-body">
         <div class="p-cat">विशेष • Special</div>
         <div class="p-name">साखर आंबा</div>
@@ -726,7 +365,6 @@ footer{background:var(--brown-dark);padding:28px 40px 22px;border-top:1px solid 
 
     <div class="p-card sr" data-cat="special">
       <div class="p-card-top"></div>
-      <img class="p-img" src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=600&q=80" alt="Chutney" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
       <div class="p-body">
         <div class="p-cat">चटणी • Chutney</div>
         <div class="p-name">शेंगदाणे चटणी</div>
@@ -750,7 +388,7 @@ footer{background:var(--brown-dark);padding:28px 40px 22px;border-top:1px solid 
       </div>
     </div>
 
-    <!-- SNACKS -->
+    <!-- ===== SNACKS / स्नॅक्स ===== -->
     <div class="p-card sr" data-cat="snacks">
       <div class="p-card-top"></div>
       <div class="p-body">
@@ -767,8 +405,8 @@ footer{background:var(--brown-dark);padding:28px 40px 22px;border-top:1px solid 
       <div class="p-card-top"></div>
       <div class="p-body">
         <div class="p-cat">स्नॅक्स • Snacks</div>
-        <div class="p-name">कुरडई</div>
-        <div class="p-desc">साचावरची आणि पातळ — दोन्ही प्रकार उपलब्ध. खरा घरगुती स्वाद!</div>
+        <div class="p-name">कुरडई (साचावरची)</div>
+        <div class="p-desc">साचावरची कुरडई — खरा घरगुती स्वाद, सोनेरी रंग!</div>
         <div class="p-feats">ताजी • हलवे • कुरकुरीत</div>
         <div class="p-price">₹350 <span>/ किलो</span></div>
         <button class="p-btn" onclick="scrollOrder()">ऑर्डर करा</button>
@@ -777,7 +415,18 @@ footer{background:var(--brown-dark);padding:28px 40px 22px;border-top:1px solid 
 
     <div class="p-card sr" data-cat="snacks">
       <div class="p-card-top"></div>
-      <div class="p-emoji-box">⭕</div>
+      <div class="p-body">
+        <div class="p-cat">स्नॅक्स • Snacks</div>
+        <div class="p-name">कुरडई (पातळ)</div>
+        <div class="p-desc">पातळ कुरडई — सौम्य आणि तेवढीच स्वादिष्ट!</div>
+        <div class="p-feats">पातळ • हलवे • कुरकुरीत</div>
+        <div class="p-price">₹350 <span>/ किलो</span></div>
+        <button class="p-btn" onclick="scrollOrder()">ऑर्डर करा</button>
+      </div>
+    </div>
+
+    <div class="p-card sr" data-cat="snacks">
+      <div class="p-card-top"></div>
       <div class="p-body">
         <div class="p-cat">स्नॅक्स • Snacks</div>
         <div class="p-name">उडीद मूग पापड</div>
@@ -790,7 +439,18 @@ footer{background:var(--brown-dark);padding:28px 40px 22px;border-top:1px solid 
 
     <div class="p-card sr" data-cat="snacks">
       <div class="p-card-top"></div>
-      <img class="p-img" src="https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?w=600&q=80" alt="Chips" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="p-body">
+        <div class="p-cat">स्नॅक्स • Snacks</div>
+        <div class="p-name">धापोडे</div>
+        <div class="p-desc">धापोडे — महाराष्ट्रीय पारंपरिक स्नॅक्स, कुरकुरीत व लाल!</div>
+        <div class="p-feats">परंपरागत • कुरकुरीत • लाल</div>
+        <div class="p-price">₹450 <span>/ किलो</span></div>
+        <button class="p-btn" onclick="scrollOrder()">ऑर्डर करा</button>
+      </div>
+    </div>
+
+    <div class="p-card sr" data-cat="snacks">
+      <div class="p-card-top"></div>
       <div class="p-body">
         <div class="p-cat">स्नॅक्स • Snacks</div>
         <div class="p-name">बटाटा चिप्स</div>
@@ -798,6 +458,7 @@ footer{background:var(--brown-dark);padding:28px 40px 22px;border-top:1px solid 
         <div class="p-feats">ताजे • कुरकुरीत • स्वादिष्ट</div>
         <div class="p-price">₹450 <span>/ किलो</span></div>
         <button class="p-btn" onclick="scrollOrder()">ऑर्डर करा</button>
+        <div class="p-badge green">Favourite</div>
       </div>
     </div>
 
@@ -810,6 +471,91 @@ footer{background:var(--brown-dark);padding:28px 40px 22px;border-top:1px solid 
         <div class="p-feats">तूप • महक • पारंपरिक</div>
         <div class="p-price">₹600 <span>/ किलो</span></div>
         <button class="p-btn" onclick="scrollOrder()">ऑर्डर करा</button>
+        <div class="p-badge">Premium</div>
+      </div>
+    </div>
+
+    <div class="p-card sr" data-cat="snacks">
+      <div class="p-card-top"></div>
+      <div class="p-body">
+        <div class="p-cat">स्नॅक्स • Snacks</div>
+        <div class="p-name">शेवया (रवा, मशीन)</div>
+        <div class="p-desc">रव्याच्या मशीन शेवया — अचूक गुणवत्ता आणि सौम्य स्वाद!</div>
+        <div class="p-feats">मशीन • बारीक • कुरकुरीत</div>
+        <div class="p-price">₹250 <span>/ किलो</span></div>
+        <button class="p-btn" onclick="scrollOrder()">ऑर्डर करा</button>
+      </div>
+    </div>
+
+    <div class="p-card sr" data-cat="snacks">
+      <div class="p-card-top"></div>
+      <div class="p-body">
+        <div class="p-cat">स्नॅक्स • Snacks</div>
+        <div class="p-name">शेवया (गहू रवा)</div>
+        <div class="p-desc">गव्हाच्या रव्याच्या शेवया — आरोग्यकर आणि पौष्टिक पर्याय!</div>
+        <div class="p-feats">गहू • पौष्टिक • आरोग्यदायी</div>
+        <div class="p-price">₹230 <span>/ किलो</span></div>
+        <button class="p-btn" onclick="scrollOrder()">ऑर्डर करा</button>
+      </div>
+    </div>
+
+    <div class="p-card sr" data-cat="snacks">
+      <div class="p-card-top"></div>
+      <div class="p-body">
+        <div class="p-cat">स्नॅक्स • Snacks</div>
+        <div class="p-name">साबुदाणा बटाटा पापड</div>
+        <div class="p-desc">साबुदाणा व बटाट्याचे पापड — उपवासाला किंवा कधीही!</div>
+        <div class="p-feats">पापड • कुरकुरीत • उपवास</div>
+        <div class="p-price">₹250 <span>/ पाकीट</span></div>
+        <button class="p-btn" onclick="scrollOrder()">ऑर्डर करा</button>
+      </div>
+    </div>
+
+    <div class="p-card sr" data-cat="snacks">
+      <div class="p-card-top"></div>
+      <div class="p-body">
+        <div class="p-cat">स्नॅक्स • Snacks</div>
+        <div class="p-name">साबुदाणा भगर चकली</div>
+        <div class="p-desc">साबुदाणा व भगरची पारंपरिक चकली — कुरकुरीत आणि स्वादिष्ट!</div>
+        <div class="p-feats">चकली • परंपरागत • घरगुती</div>
+        <div class="p-price">₹350 <span>/ किलो</span></div>
+        <button class="p-btn" onclick="scrollOrder()">ऑर्डर करा</button>
+      </div>
+    </div>
+
+    <div class="p-card sr" data-cat="snacks">
+      <div class="p-card-top"></div>
+      <div class="p-body">
+        <div class="p-cat">स्नॅक्स • Snacks</div>
+        <div class="p-name">सरगुंडे</div>
+        <div class="p-desc">सरगुंडे — सर्वांचा प्रिय पारंपरिक कुरकुरीत स्नॅक्स!</div>
+        <div class="p-feats">कुरकुरीत • ताजे • गरम</div>
+        <div class="p-price">₹400 <span>/ किलो</span></div>
+        <button class="p-btn" onclick="scrollOrder()">ऑर्डर करा</button>
+      </div>
+    </div>
+
+    <div class="p-card sr" data-cat="snacks">
+      <div class="p-card-top"></div>
+      <div class="p-body">
+        <div class="p-cat">स्नॅक्स • Snacks</div>
+        <div class="p-name">सातूचे पीठ</div>
+        <div class="p-desc">सातूचे पौष्टिक पीठ — उन्हाळ्यातील थंडावा देणारे आरोग्यदायी पेय!</div>
+        <div class="p-feats">पीठ • पौष्टिक • परंपरागत</div>
+        <div class="p-price">₹500 <span>/ किलो</span></div>
+        <button class="p-btn" onclick="scrollOrder()">ऑर्डर करा</button>
+      </div>
+    </div>
+
+    <div class="p-card sr" data-cat="snacks">
+      <div class="p-card-top"></div>
+      <div class="p-body">
+        <div class="p-cat">स्नॅक्स • Snacks</div>
+        <div class="p-name">खरोडी</div>
+        <div class="p-desc">खरोडी — परंपरागत महाराष्ट्रीय कुरकुरीत खारी स्नॅक्स!</div>
+        <div class="p-feats">कुरकुरीत • खारी • स्वादिष्ट</div>
+        <div class="p-price">₹400 <span>/ किलो</span></div>
+        <button class="p-btn" onclick="scrollOrder()">ऑर्डर करा</button>
       </div>
     </div>
 
@@ -818,9 +564,21 @@ footer{background:var(--brown-dark);padding:28px 40px 22px;border-top:1px solid 
       <div class="p-body">
         <div class="p-cat">स्नॅक्स • Snacks</div>
         <div class="p-name">मेतकूट</div>
-        <div class="p-desc">मेथीचा सुगंध असलेले पारंपरिक मेतकूट — भातासाठी perfect!</div>
+        <div class="p-desc">मेथीचा सुगंध असलेले पारंपरिक मेतकूट — भातासाठी परफेक्ट!</div>
         <div class="p-feats">मेथी • सुगंधी • ताजे</div>
         <div class="p-price">₹400 <span>/ किलो</span></div>
+        <button class="p-btn" onclick="scrollOrder()">ऑर्डर करा</button>
+      </div>
+    </div>
+
+    <div class="p-card sr" data-cat="snacks">
+      <div class="p-card-top"></div>
+      <div class="p-body">
+        <div class="p-cat">स्नॅक्स • Snacks</div>
+        <div class="p-name">पापडा</div>
+        <div class="p-desc">घरगुती पापडा — जेवणाबरोबर खायला उत्तम, कुरकुरीत व स्वादिष्ट!</div>
+        <div class="p-feats">कुरकुरीत • घरगुती • ताजे</div>
+        <div class="p-price">₹300 <span>/ किलो</span></div>
         <button class="p-btn" onclick="scrollOrder()">ऑर्डर करा</button>
       </div>
     </div>
@@ -886,7 +644,7 @@ footer{background:var(--brown-dark);padding:28px 40px 22px;border-top:1px solid 
           <div class="pcheck"><div class="pcheck-top"><input type="checkbox" id="c6" value="लसूण लोणचे - ₹400/kg"><label for="c6">लसूण लोणचे — ₹400/kg</label></div><input class="qty-input" id="c6q" type="number" placeholder="किलो / kg" min="0" step="0.5"></div>
 
           <div class="grp-label" style="margin-top:10px">⭐ विशेष पदार्थ / Specials</div>
-          <div class="pcheck"><div class="pcheck-top"><input type="checkbox" id="c7" value="दही मिरची - ₹300/packet"><label for="c7">दही मिरची — ₹300/पाकीट</label></div><input class="qty-input" id="c7q" type="number" placeholder="पाकीट / pkt" min="0" step="1"></div>
+          <div class="pcheck"><div class="pcheck-top"><input type="checkbox" id="c7" value="दही मिरची - ₹300/kg"><label for="c7">दही मिरची — ₹300/kg</label></div><input class="qty-input" id="c7q" type="number" placeholder="किलो / kg" min="0" step="0.5"></div>
           <div class="pcheck"><div class="pcheck-top"><input type="checkbox" id="c8" value="साखर आंबा - ₹350/kg"><label for="c8">साखर आंबा — ₹350/kg</label></div><input class="qty-input" id="c8q" type="number" placeholder="किलो / kg" min="0" step="0.5"></div>
           <div class="pcheck"><div class="pcheck-top"><input type="checkbox" id="c9" value="आवळा मुरब्बा - ₹400/kg"><label for="c9">आवळा मुरब्बा — ₹400/kg</label></div><input class="qty-input" id="c9q" type="number" placeholder="किलो / kg" min="0" step="0.5"></div>
           <div class="pcheck"><div class="pcheck-top"><input type="checkbox" id="c10" value="शेंगदाणे चटणी - ₹400/kg"><label for="c10">शेंगदाणे चटणी — ₹400/kg</label></div><input class="qty-input" id="c10q" type="number" placeholder="किलो / kg" min="0" step="0.5"></div>
@@ -902,12 +660,13 @@ footer{background:var(--brown-dark);padding:28px 40px 22px;border-top:1px solid 
           <div class="pcheck"><div class="pcheck-top"><input type="checkbox" id="c18" value="शेवया (तुपाच्या) - ₹600/kg"><label for="c18">शेवया (तुपाच्या) — ₹600/kg</label></div><input class="qty-input" id="c18q" type="number" placeholder="किलो / kg" min="0" step="0.5"></div>
           <div class="pcheck"><div class="pcheck-top"><input type="checkbox" id="c19" value="शेवया (रवा, मशीन) - ₹250/kg"><label for="c19">शेवया (रवा, मशीन) — ₹250/kg</label></div><input class="qty-input" id="c19q" type="number" placeholder="किलो / kg" min="0" step="0.5"></div>
           <div class="pcheck"><div class="pcheck-top"><input type="checkbox" id="c20" value="शेवया (गहू रवा) - ₹230/kg"><label for="c20">शेवया (गहू रवा) — ₹230/kg</label></div><input class="qty-input" id="c20q" type="number" placeholder="किलो / kg" min="0" step="0.5"></div>
-          <div class="pcheck"><div class="pcheck-top"><input type="checkbox" id="c21" value="साबुदाणा बटाटा पापड - ₹250/packet"><label for="c21">साबुदाणा बटाटा पापड — ₹250/पाकीट</label></div><input class="qty-input" id="c21q" type="number" placeholder="पाकीट / pkt" min="0" step="1"></div>
+          <div class="pcheck"><div class="pcheck-top"><input type="checkbox" id="c21" value="साबुदाणा बटाटा पापड - ₹250/pkt"><label for="c21">साबुदाणा बटाटा पापड — ₹250/पाकीट</label></div><input class="qty-input" id="c21q" type="number" placeholder="पाकीट / pkt" min="0" step="1"></div>
           <div class="pcheck"><div class="pcheck-top"><input type="checkbox" id="c22" value="साबुदाणा भगर चकली - ₹350/kg"><label for="c22">साबुदाणा भगर चकली — ₹350/kg</label></div><input class="qty-input" id="c22q" type="number" placeholder="किलो / kg" min="0" step="0.5"></div>
           <div class="pcheck"><div class="pcheck-top"><input type="checkbox" id="c23" value="सरगुंडे - ₹400/kg"><label for="c23">सरगुंडे — ₹400/kg</label></div><input class="qty-input" id="c23q" type="number" placeholder="किलो / kg" min="0" step="0.5"></div>
           <div class="pcheck"><div class="pcheck-top"><input type="checkbox" id="c24" value="सातूचे पीठ - ₹500/kg"><label for="c24">सातूचे पीठ — ₹500/kg</label></div><input class="qty-input" id="c24q" type="number" placeholder="किलो / kg" min="0" step="0.5"></div>
-          <div class="pcheck"><div class="pcheck-top"><input type="checkbox" id="c25" value="खारोडी - ₹400/kg"><label for="c25">खारोडी — ₹400/kg</label></div><input class="qty-input" id="c25q" type="number" placeholder="किलो / kg" min="0" step="0.5"></div>
+          <div class="pcheck"><div class="pcheck-top"><input type="checkbox" id="c25" value="खरोडी - ₹400/kg"><label for="c25">खरोडी — ₹400/kg</label></div><input class="qty-input" id="c25q" type="number" placeholder="किलो / kg" min="0" step="0.5"></div>
           <div class="pcheck"><div class="pcheck-top"><input type="checkbox" id="c26" value="मेतकूट - ₹400/kg"><label for="c26">मेतकूट — ₹400/kg</label></div><input class="qty-input" id="c26q" type="number" placeholder="किलो / kg" min="0" step="0.5"></div>
+          <div class="pcheck"><div class="pcheck-top"><input type="checkbox" id="c27" value="पापडा - ₹300/kg"><label for="c27">पापडा — ₹300/kg</label></div><input class="qty-input" id="c27q" type="number" placeholder="किलो / kg" min="0" step="0.5"></div>
 
         </div>
       </div>
@@ -1003,19 +762,10 @@ function setLang(l){
 
 /* ── FILTER ── */
 function filterCat(cat, el){
-  // active tab change
   document.querySelectorAll('.cat-tab').forEach(t => t.classList.remove('active'));
   el.classList.add('active');
-
-  // products filter
   document.querySelectorAll('.p-card').forEach(card => {
-    const category = card.getAttribute('data-cat');
-
-    if(cat === 'all' || category === cat){
-      card.style.display = 'block';   // 👈 IMPORTANT FIX
-    } else {
-      card.style.display = 'none';
-    }
+    card.style.display = (cat === 'all' || card.getAttribute('data-cat') === cat) ? '' : 'none';
   });
 }
 
@@ -1054,11 +804,7 @@ document.getElementById('orderForm').addEventListener('submit',function(e){
   alert(t.thanks);
 });
 
-/* ── SCROLL REVEAL ── */
-const obs=new IntersectionObserver(entries=>{
-  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in')});
-},{threshold:0.08,rootMargin:'0 0 -50px 0'});
-document.querySelectorAll('.sr').forEach(el=>obs.observe(el));
+
 
 /* ── HEADER SHADOW ── */
 window.addEventListener('scroll',()=>{
