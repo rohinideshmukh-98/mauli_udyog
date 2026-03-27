@@ -165,6 +165,145 @@ footer{background:var(--brown-dark);padding:28px 40px 22px;border-top:1px solid 
 /* SCROLL REVEAL */
 .sr{opacity:1;transform:none}
 
+/* ── CART BUTTON (floating) ── */
+.cart-fab{
+  position:fixed;bottom:28px;right:28px;z-index:10000;
+  background:linear-gradient(135deg,var(--gold),var(--gold-light));
+  color:var(--brown-dark);border:none;border-radius:50px;
+  padding:14px 22px;font-size:13px;font-weight:700;letter-spacing:1.5px;
+  cursor:pointer;box-shadow:0 8px 28px rgba(201,151,58,.5);
+  display:flex;align-items:center;gap:10px;transition:all .3s;
+  text-transform:uppercase;
+}
+.cart-fab:hover{transform:translateY(-3px);box-shadow:0 14px 36px rgba(201,151,58,.65)}
+.cart-fab-count{
+  background:var(--red);color:#fff;border-radius:50%;
+  width:22px;height:22px;display:flex;align-items:center;justify-content:center;
+  font-size:11px;font-weight:700;flex-shrink:0;
+}
+
+/* ── CART SIDEBAR ── */
+.cart-overlay{
+  position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:10001;
+  opacity:0;pointer-events:none;transition:opacity .3s;
+}
+.cart-overlay.open{opacity:1;pointer-events:all}
+.cart-drawer{
+  position:fixed;top:0;right:0;bottom:0;width:420px;max-width:100vw;
+  background:var(--cream);z-index:10002;
+  transform:translateX(100%);transition:transform .35s cubic-bezier(.4,0,.2,1);
+  display:flex;flex-direction:column;box-shadow:-8px 0 40px rgba(0,0,0,.25);
+}
+.cart-drawer.open{transform:translateX(0)}
+.cart-header{
+  background:var(--brown-dark);padding:22px 24px;
+  display:flex;align-items:center;justify-content:space-between;
+  border-bottom:2px solid var(--gold);flex-shrink:0;
+}
+.cart-header h3{color:var(--gold-light);font-family:'Tiro Devanagari Marathi',serif;font-size:20px}
+.cart-close{background:none;border:none;color:rgba(255,255,255,.7);font-size:24px;cursor:pointer;line-height:1;padding:4px}
+.cart-close:hover{color:#fff}
+.cart-body{flex:1;overflow-y:auto;padding:20px 22px}
+.cart-empty{text-align:center;padding:50px 20px;color:#aaa}
+.cart-empty-icon{font-size:48px;margin-bottom:12px}
+.cart-empty p{font-size:14px}
+.cart-item{
+  background:var(--white);border-radius:10px;padding:14px 16px;
+  margin-bottom:12px;border:1.5px solid #e8d8c0;
+  display:flex;align-items:center;gap:14px;
+}
+.cart-item-emoji{font-size:28px;flex-shrink:0}
+.cart-item-info{flex:1;min-width:0}
+.cart-item-name{font-size:13px;font-weight:700;color:var(--brown-dark);margin-bottom:4px;line-height:1.3}
+.cart-item-price{font-size:12px;color:var(--brown);font-weight:600}
+.cart-qty-ctrl{display:flex;align-items:center;gap:8px;margin-top:8px}
+.cart-qty-btn{
+  width:28px;height:28px;border-radius:50%;border:1.5px solid var(--gold);
+  background:transparent;color:var(--brown);font-size:16px;font-weight:700;
+  cursor:pointer;display:flex;align-items:center;justify-content:center;
+  transition:all .2s;line-height:1;
+}
+.cart-qty-btn:hover{background:var(--gold);color:var(--brown-dark)}
+.cart-qty-val{font-size:14px;font-weight:700;color:var(--brown-dark);min-width:44px;text-align:center}
+.cart-qty-unit{font-size:11px;color:#999}
+.cart-item-total{font-size:15px;font-weight:900;color:var(--brown);font-family:'Playfair Display',serif;flex-shrink:0}
+.cart-item-remove{background:none;border:none;color:#ccc;font-size:18px;cursor:pointer;padding:2px 6px;transition:color .2s;flex-shrink:0}
+.cart-item-remove:hover{color:var(--red)}
+.cart-footer{
+  background:var(--white);border-top:2px solid #e8d8c0;padding:20px 22px;flex-shrink:0;
+}
+.cart-summary{margin-bottom:16px}
+.cart-summary-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;font-size:13px;color:var(--brown)}
+.cart-summary-row.total{font-size:17px;font-weight:800;color:var(--brown-dark);border-top:1.5px solid #e8d8c0;padding-top:10px;margin-top:10px}
+.cart-summary-row.discount{color:var(--green);font-weight:700}
+.cart-order-btn{
+  width:100%;padding:16px;background:linear-gradient(135deg,#25D366,#1DA851);
+  color:#fff;border:none;border-radius:8px;font-size:13px;font-weight:700;
+  letter-spacing:1.5px;text-transform:uppercase;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;gap:10px;
+  transition:all .3s;box-shadow:0 6px 20px rgba(37,211,102,.3);
+}
+.cart-order-btn:hover{transform:translateY(-2px);box-shadow:0 10px 28px rgba(37,211,102,.45)}
+.cart-order-btn:disabled{opacity:.5;cursor:not-allowed;transform:none}
+
+/* ── PRODUCT CARD — ADD TO CART ── */
+.p-btn-wrap{display:flex;gap:8px;margin-top:auto}
+.p-btn-add{
+  flex:1;padding:12px;background:linear-gradient(135deg,var(--gold),var(--gold-light));
+  color:var(--brown-dark);border:none;border-radius:4px;font-size:11px;font-weight:700;
+  letter-spacing:1.5px;text-transform:uppercase;cursor:pointer;transition:all .3s;
+}
+.p-btn-add:hover{box-shadow:0 6px 20px rgba(201,151,58,.4);transform:translateY(-2px)}
+.p-btn-add.in-cart{background:var(--green);color:#fff}
+.p-qty-ctrl{display:none;align-items:center;gap:6px;background:rgba(201,151,58,.1);border-radius:6px;padding:6px 10px}
+.p-qty-ctrl.show{display:flex}
+.p-qty-minus,.p-qty-plus{width:26px;height:26px;border-radius:50%;border:1.5px solid var(--gold);background:transparent;color:var(--brown);font-size:14px;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s}
+.p-qty-minus:hover,.p-qty-plus:hover{background:var(--gold);color:var(--brown-dark)}
+.p-qty-disp{font-size:13px;font-weight:700;color:var(--brown-dark);min-width:38px;text-align:center}
+
+/* ── ORDER FORM cart summary ── */
+.cart-summary-box{background:rgba(201,151,58,.08);border:1.5px solid rgba(201,151,58,.3);border-radius:10px;padding:18px;margin-bottom:22px}
+.csb-title{font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--brown);margin-bottom:12px}
+.csb-item{display:flex;justify-content:space-between;align-items:center;font-size:13px;color:var(--brown-dark);padding:6px 0;border-bottom:1px dashed #e0cba8}
+.csb-item:last-of-type{border-bottom:none}
+.csb-item-name{font-weight:600}
+.csb-item-val{font-weight:700}
+.csb-total{display:flex;justify-content:space-between;align-items:center;margin-top:10px;padding-top:10px;border-top:2px solid var(--gold)}
+.csb-total-label{font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--brown)}
+.csb-total-val{font-family:'Playfair Display',serif;font-size:20px;font-weight:900;color:var(--brown-dark)}
+.csb-total-kg{font-size:12px;color:#888;margin-left:6px;font-family:'Josefin Sans',sans-serif}
+
+/* ── PAYMENT METHOD ── */
+.payment-section{margin-bottom:22px}
+.payment-title{font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--brown);margin-bottom:12px;display:block}
+.payment-options{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.pay-opt{
+  border:2px solid #e5d9c5;border-radius:8px;padding:14px 10px;text-align:center;
+  cursor:pointer;transition:all .2s;background:var(--white);position:relative;
+}
+.pay-opt:hover{border-color:var(--gold);background:rgba(201,151,58,.05)}
+.pay-opt.selected{border-color:var(--gold);background:rgba(201,151,58,.12);box-shadow:0 0 0 2px rgba(201,151,58,.25)}
+.pay-opt input[type=radio]{position:absolute;opacity:0;width:0;height:0}
+.pay-icon{font-size:26px;margin-bottom:6px}
+.pay-label{font-size:11px;font-weight:700;color:var(--brown-dark);letter-spacing:.5px}
+.pay-sublabel{font-size:10px;color:#999;margin-top:3px}
+.pay-check{
+  position:absolute;top:8px;right:8px;width:18px;height:18px;
+  border-radius:50%;background:var(--gold);color:var(--brown-dark);
+  font-size:11px;font-weight:700;display:none;align-items:center;justify-content:center;
+}
+.pay-opt.selected .pay-check{display:flex}
+.upi-detail{background:rgba(201,151,58,.08);border:1.5px solid rgba(201,151,58,.25);border-radius:8px;padding:14px;margin-top:12px;display:none}
+.upi-detail.show{display:block}
+.upi-detail p{font-size:13px;color:var(--brown-dark);font-weight:600;margin-bottom:4px}
+.upi-id{font-family:monospace;font-size:15px;color:var(--brown);background:var(--white);padding:8px 12px;border-radius:5px;border:1px solid #e5d9c5;display:flex;justify-content:space-between;align-items:center}
+.upi-copy{background:var(--gold);border:none;border-radius:4px;padding:4px 10px;font-size:10px;font-weight:700;cursor:pointer;color:var(--brown-dark)}
+.bank-detail{background:rgba(201,151,58,.08);border:1.5px solid rgba(201,151,58,.25);border-radius:8px;padding:14px;margin-top:12px;display:none}
+.bank-detail.show{display:block}
+.bank-row{display:flex;justify-content:space-between;font-size:12px;color:var(--brown-dark);padding:4px 0;border-bottom:1px dashed #e0cba8}
+.bank-row:last-child{border-bottom:none}
+.bank-row span:last-child{font-weight:700}
+
 @media(max-width:900px){
   .hero-right{display:none}
   .hero-left{padding:60px 30px}
@@ -181,6 +320,39 @@ footer{background:var(--brown-dark);padding:28px 40px 22px;border-top:1px solid 
 </style>
 </head>
 <body>
+
+<!-- CART FAB -->
+<button class="cart-fab" id="cartFab" onclick="openCart()" style="display:none">
+  🛒 <span id="cartFabText">कार्ट पहा</span>
+  <span class="cart-fab-count" id="cartFabCount">0</span>
+</button>
+
+<!-- CART OVERLAY + DRAWER -->
+<div class="cart-overlay" id="cartOverlay" onclick="closeCart()"></div>
+<div class="cart-drawer" id="cartDrawer">
+  <div class="cart-header">
+    <h3>🛒 माझी कार्ट</h3>
+    <button class="cart-close" onclick="closeCart()">✕</button>
+  </div>
+  <div class="cart-body" id="cartBody">
+    <div class="cart-empty" id="cartEmpty">
+      <div class="cart-empty-icon">🛒</div>
+      <p>कार्ट रिकामी आहे<br>Products निवडा!</p>
+    </div>
+  </div>
+  <div class="cart-footer" id="cartFooter" style="display:none">
+    <div class="cart-summary">
+      <div class="cart-summary-row"><span>एकूण Items</span><span id="cTotalItems">0</span></div>
+      <div class="cart-summary-row"><span>एकूण वजन</span><span id="cTotalKg">0 kg</span></div>
+      <div class="cart-summary-row discount" id="cDiscRow" style="display:none"><span>🎁 Bulk Discount (10kg+)</span><span>लागू!</span></div>
+      <div class="cart-summary-row total"><span>एकूण रक्कम</span><span id="cTotalPrice">₹0</span></div>
+    </div>
+    <button class="cart-order-btn" onclick="cartToOrder()">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      ऑर्डर Form भरा
+    </button>
+  </div>
+</div>
 
 <!-- HEADER -->
 <header id="mainHeader">
@@ -253,137 +425,224 @@ footer{background:var(--brown-dark);padding:28px 40px 22px;border-top:1px solid 
     <!-- ===== PICKLES / लोणचे ===== -->
     <div class="p-card sr" data-cat="lonche">
       <div class="p-card-top"></div>
+      <div class="p-emoji-box" style="background:linear-gradient(135deg,#FFF8E1,#FFF3CD)">🫙</div>
       <div class="p-body">
         <div class="p-cat">लोणचे • Pickle</div>
         <div class="p-name">आंबा लोणचे</div>
         <div class="p-desc">ताज्या कैरीपासून बनवलेले पारंपरिक लोणचे — तिखट, आंबट, जायकेदार!</div>
         <div class="p-feats">तिखट • आंबट • पारंपरिक</div>
         <div class="p-price">₹350 <span>/ किलो</span></div>
-        <button class="p-btn" onclick="scrollOrder()">ऑर्डर करा</button>
+        <div class="p-btn-wrap">
+          <button class="p-btn-add" onclick="addToCart('आंबा लोणचे',350,'kg','🫙','lonche',this)">+ कार्टमध्ये टाका</button>
+          <div class="p-qty-ctrl" id="qc-आंबा लोणचे">
+            <button class="p-qty-minus" onclick="changeQty('आंबा लोणचे',-0.5)">−</button>
+            <span class="p-qty-disp" id="qd-आंबा लोणचे">0.5 kg</span>
+            <button class="p-qty-plus" onclick="changeQty('आंबा लोणचे',0.5)">+</button>
+          </div>
+        </div>
       </div>
     </div>
 
     <div class="p-card sr" data-cat="lonche">
       <div class="p-card-top"></div>
+      <div class="p-emoji-box" style="background:linear-gradient(135deg,#FFF9E6,#FFFDE7)">🍋</div>
       <div class="p-body">
         <div class="p-cat">लोणचे • Pickle</div>
         <div class="p-name">लिंबू लोणचे</div>
         <div class="p-desc">घरगुती मसाल्यात बनवलेले ताजे लिंबू लोणचे — जेवणाची मजा वाढवते!</div>
         <div class="p-feats">आंबट • खारट • ताजे</div>
         <div class="p-price">₹300 <span>/ किलो</span></div>
-        <button class="p-btn" onclick="scrollOrder()">ऑर्डर करा</button>
+        <div class="p-btn-wrap">
+          <button class="p-btn-add" onclick="addToCart('लिंबू लोणचे',300,'kg','🍋','lonche',this)">+ कार्टमध्ये टाका</button>
+          <div class="p-qty-ctrl" id="qc-लिंबू लोणचे">
+            <button class="p-qty-minus" onclick="changeQty('लिंबू लोणचे',-0.5)">−</button>
+            <span class="p-qty-disp" id="qd-लिंबू लोणचे">0.5 kg</span>
+            <button class="p-qty-plus" onclick="changeQty('लिंबू लोणचे',0.5)">+</button>
+          </div>
+        </div>
       </div>
     </div>
 
     <div class="p-card sr" data-cat="lonche">
       <div class="p-card-top"></div>
-   
+      <div class="p-emoji-box" style="background:linear-gradient(135deg,#F1F8E9,#E8F5E9)">🟢</div>
       <div class="p-body">
         <div class="p-cat">लोणचे • Pickle</div>
         <div class="p-name">आवळा लोणचे</div>
         <div class="p-desc">व्हिटॅमिन C ने भरपूर आवळ्याचे पौष्टिक लोणचे — आरोग्यदायी व स्वादिष्ट.</div>
         <div class="p-feats">पौष्टिक • आरोग्यदायी • ताजे</div>
         <div class="p-price">₹350 <span>/ किलो</span></div>
-        <button class="p-btn" onclick="scrollOrder()">ऑर्डर करा</button>
+        <div class="p-btn-wrap">
+          <button class="p-btn-add" onclick="addToCart('आवळा लोणचे',350,'kg','🟢','lonche',this)">+ कार्टमध्ये टाका</button>
+          <div class="p-qty-ctrl" id="qc-आवळा लोणचे">
+            <button class="p-qty-minus" onclick="changeQty('आवळा लोणचे',-0.5)">−</button>
+            <span class="p-qty-disp" id="qd-आवळा लोणचे">0.5 kg</span>
+            <button class="p-qty-plus" onclick="changeQty('आवळा लोणचे',0.5)">+</button>
+          </div>
+        </div>
       </div>
     </div>
 
     <div class="p-card sr" data-cat="lonche">
       <div class="p-card-top"></div>
+      <div class="p-emoji-box" style="background:linear-gradient(135deg,#FFF3E0,#FFECB3)">🌶️</div>
       <div class="p-body">
         <div class="p-cat">लोणचे • Pickle</div>
         <div class="p-name">मिरची लोणचे</div>
         <div class="p-desc">तिखट प्रेमींसाठी खास! हिरव्या मिरचीचे जळजळीत आणि चवदार लोणचे.</div>
         <div class="p-feats">तिखट • झणझणीत • खास</div>
         <div class="p-price">₹350 <span>/ किलो</span></div>
-        <button class="p-btn" onclick="scrollOrder()">ऑर्डर करा</button>
+        <div class="p-btn-wrap">
+          <button class="p-btn-add" onclick="addToCart('मिरची लोणचे',350,'kg','🌶️','lonche',this)">+ कार्टमध्ये टाका</button>
+          <div class="p-qty-ctrl" id="qc-मिरची लोणचे">
+            <button class="p-qty-minus" onclick="changeQty('मिरची लोणचे',-0.5)">−</button>
+            <span class="p-qty-disp" id="qd-मिरची लोणचे">0.5 kg</span>
+            <button class="p-qty-plus" onclick="changeQty('मिरची लोणचे',0.5)">+</button>
+          </div>
+        </div>
       </div>
     </div>
 
     <div class="p-card sr" data-cat="lonche">
       <div class="p-card-top"></div>
+      <div class="p-emoji-box" style="background:linear-gradient(135deg,#FEF3E2,#FDE9C9)">🫙</div>
       <div class="p-body">
         <div class="p-cat">लोणचे • Pickle</div>
         <div class="p-name">मिक्स लोणचे</div>
         <div class="p-desc">आंबा, लिंबू, मिरची एकत्र — सर्व चवी एका बाटलीत!</div>
         <div class="p-feats">मिक्स • स्पेशल • जायकेदार</div>
         <div class="p-price">₹350 <span>/ किलो</span></div>
-        <button class="p-btn" onclick="scrollOrder()">ऑर्डर करा</button>
+        <div class="p-btn-wrap">
+          <button class="p-btn-add" onclick="addToCart('मिक्स लोणचे',350,'kg','🫙','lonche',this)">+ कार्टमध्ये टाका</button>
+          <div class="p-qty-ctrl" id="qc-मिक्स लोणचे">
+            <button class="p-qty-minus" onclick="changeQty('मिक्स लोणचे',-0.5)">−</button>
+            <span class="p-qty-disp" id="qd-मिक्स लोणचे">0.5 kg</span>
+            <button class="p-qty-plus" onclick="changeQty('मिक्स लोणचे',0.5)">+</button>
+          </div>
+        </div>
         <div class="p-badge green">Best Seller</div>
       </div>
     </div>
 
     <div class="p-card sr" data-cat="lonche">
       <div class="p-card-top"></div>
+      <div class="p-emoji-box" style="background:linear-gradient(135deg,#F3E5F5,#EDE7F6)">🧄</div>
       <div class="p-body">
         <div class="p-cat">लोणचे • Pickle</div>
         <div class="p-name">लसूण लोणचे</div>
         <div class="p-desc">खमंग लसणाचे ठसठशीत लोणचे — भाकरी आणि भाताबरोबर अप्रतिम!</div>
         <div class="p-feats">खमंग • ठसठशीत • घरगुती</div>
         <div class="p-price">₹400 <span>/ किलो</span></div>
-        <button class="p-btn" onclick="scrollOrder()">ऑर्डर करा</button>
+        <div class="p-btn-wrap">
+          <button class="p-btn-add" onclick="addToCart('लसूण लोणचे',400,'kg','🧄','lonche',this)">+ कार्टमध्ये टाका</button>
+          <div class="p-qty-ctrl" id="qc-लसूण लोणचे">
+            <button class="p-qty-minus" onclick="changeQty('लसूण लोणचे',-0.5)">−</button>
+            <span class="p-qty-disp" id="qd-लसूण लोणचे">0.5 kg</span>
+            <button class="p-qty-plus" onclick="changeQty('लसूण लोणचे',0.5)">+</button>
+          </div>
+        </div>
       </div>
     </div>
 
     <!-- ===== SPECIALS / विशेष ===== -->
     <div class="p-card sr" data-cat="special">
       <div class="p-card-top"></div>
+      <div class="p-emoji-box" style="background:linear-gradient(135deg,#E8F5E9,#F1F8E9)">🥛</div>
       <div class="p-body">
         <div class="p-cat">विशेष • Special</div>
         <div class="p-name">दही मिरची</div>
         <div class="p-desc">दह्यात मुरवलेल्या मिरच्या — वेगळ्याच चवीचा एक unique पदार्थ!</div>
         <div class="p-feats">दही • मिरची • Unique</div>
         <div class="p-price">₹300 <span>/ किलो</span></div>
-        <button class="p-btn" onclick="scrollOrder()">ऑर्डर करा</button>
+        <div class="p-btn-wrap">
+          <button class="p-btn-add" onclick="addToCart('दही मिरची',300,'kg','🥛','special',this)">+ कार्टमध्ये टाका</button>
+          <div class="p-qty-ctrl" id="qc-दही मिरची">
+            <button class="p-qty-minus" onclick="changeQty('दही मिरची',-0.5)">−</button>
+            <span class="p-qty-disp" id="qd-दही मिरची">0.5 kg</span>
+            <button class="p-qty-plus" onclick="changeQty('दही मिरची',0.5)">+</button>
+          </div>
+        </div>
         <div class="p-badge">New</div>
       </div>
     </div>
 
     <div class="p-card sr" data-cat="special">
       <div class="p-card-top"></div>
+      <div class="p-emoji-box" style="background:linear-gradient(135deg,#FFF8E1,#FFFDE7)">🥭</div>
       <div class="p-body">
         <div class="p-cat">विशेष • Special</div>
         <div class="p-name">साखर आंबा</div>
         <div class="p-desc">गोड साखरेत मुरवलेले आंबे — मुलांचे आणि मोठ्यांचे आवडते!</div>
         <div class="p-feats">गोड • ताजे • मुरवलेले</div>
         <div class="p-price">₹350 <span>/ किलो</span></div>
-        <button class="p-btn" onclick="scrollOrder()">ऑर्डर करा</button>
+        <div class="p-btn-wrap">
+          <button class="p-btn-add" onclick="addToCart('साखर आंबा',350,'kg','🥭','special',this)">+ कार्टमध्ये टाका</button>
+          <div class="p-qty-ctrl" id="qc-साखर आंबा">
+            <button class="p-qty-minus" onclick="changeQty('साखर आंबा',-0.5)">−</button>
+            <span class="p-qty-disp" id="qd-साखर आंबा">0.5 kg</span>
+            <button class="p-qty-plus" onclick="changeQty('साखर आंबा',0.5)">+</button>
+          </div>
+        </div>
       </div>
     </div>
 
     <div class="p-card sr" data-cat="special">
       <div class="p-card-top"></div>
+      <div class="p-emoji-box" style="background:linear-gradient(135deg,#E8F5E9,#DCEDC8)">🟤</div>
       <div class="p-body">
         <div class="p-cat">विशेष • Special</div>
         <div class="p-name">आवळा मुरब्बा</div>
         <div class="p-desc">साखरेच्या पाकात मुरवलेला आवळा — आरोग्यासाठी अत्यंत लाभकारक!</div>
         <div class="p-feats">पौष्टिक • गोड • आरोग्यदायी</div>
         <div class="p-price">₹400 <span>/ किलो</span></div>
-        <button class="p-btn" onclick="scrollOrder()">ऑर्डर करा</button>
+        <div class="p-btn-wrap">
+          <button class="p-btn-add" onclick="addToCart('आवळा मुरब्बा',400,'kg','🟤','special',this)">+ कार्टमध्ये टाका</button>
+          <div class="p-qty-ctrl" id="qc-आवळा मुरब्बा">
+            <button class="p-qty-minus" onclick="changeQty('आवळा मुरब्बा',-0.5)">−</button>
+            <span class="p-qty-disp" id="qd-आवळा मुरब्बा">0.5 kg</span>
+            <button class="p-qty-plus" onclick="changeQty('आवळा मुरब्बा',0.5)">+</button>
+          </div>
+        </div>
       </div>
     </div>
 
     <div class="p-card sr" data-cat="special">
       <div class="p-card-top"></div>
+      <div class="p-emoji-box" style="background:linear-gradient(135deg,#FBE9E7,#FFF3E0)">🥜</div>
       <div class="p-body">
         <div class="p-cat">चटणी • Chutney</div>
         <div class="p-name">शेंगदाणे चटणी</div>
         <div class="p-desc">खमंग भाजलेल्या शेंगदाण्यांची चटणी — थालीपीठ, भाकरीसाठी परफेक्ट!</div>
         <div class="p-feats">खमंग • घरगुती • ताजी</div>
         <div class="p-price">₹400 <span>/ किलो</span></div>
-        <button class="p-btn" onclick="scrollOrder()">ऑर्डर करा</button>
+        <div class="p-btn-wrap">
+          <button class="p-btn-add" onclick="addToCart('शेंगदाणे चटणी',400,'kg','🥜','special',this)">+ कार्टमध्ये टाका</button>
+          <div class="p-qty-ctrl" id="qc-शेंगदाणे चटणी">
+            <button class="p-qty-minus" onclick="changeQty('शेंगदाणे चटणी',-0.5)">−</button>
+            <span class="p-qty-disp" id="qd-शेंगदाणे चटणी">0.5 kg</span>
+            <button class="p-qty-plus" onclick="changeQty('शेंगदाणे चटणी',0.5)">+</button>
+          </div>
+        </div>
       </div>
     </div>
 
     <div class="p-card sr" data-cat="special">
       <div class="p-card-top"></div>
+      <div class="p-emoji-box" style="background:linear-gradient(135deg,#FFEBEE,#FFCDD2)">🔴</div>
       <div class="p-body">
         <div class="p-cat">विशेष • Special</div>
         <div class="p-name">वऱ्हाडी लाल ठेचा</div>
         <div class="p-desc">वऱ्हाडी पद्धतीने बनवलेला लाल ठेचा — झणझणीत, दमदार आणि खास!</div>
         <div class="p-feats">झणझणीत • वऱ्हाडी • दमदार</div>
         <div class="p-price">₹350 <span>/ किलो</span></div>
-        <button class="p-btn" onclick="scrollOrder()">ऑर्डर करा</button>
+        <div class="p-btn-wrap">
+          <button class="p-btn-add" onclick="addToCart('वऱ्हाडी लाल ठेचा',350,'kg','🔴','special',this)">+ कार्टमध्ये टाका</button>
+          <div class="p-qty-ctrl" id="qc-वऱ्हाडी लाल ठेचा">
+            <button class="p-qty-minus" onclick="changeQty('वऱ्हाडी लाल ठेचा',-0.5)">−</button>
+            <span class="p-qty-disp" id="qd-वऱ्हाडी लाल ठेचा">0.5 kg</span>
+            <button class="p-qty-plus" onclick="changeQty('वऱ्हाडी लाल ठेचा',0.5)">+</button>
+          </div>
+        </div>
         <div class="p-badge">Popular</div>
       </div>
     </div>
@@ -391,195 +650,323 @@ footer{background:var(--brown-dark);padding:28px 40px 22px;border-top:1px solid 
     <!-- ===== SNACKS / स्नॅक्स ===== -->
     <div class="p-card sr" data-cat="snacks">
       <div class="p-card-top"></div>
+      <div class="p-emoji-box" style="background:linear-gradient(135deg,#FFF8E1,#FFF3CD)">🍘</div>
       <div class="p-body">
         <div class="p-cat">स्नॅक्स • Snacks</div>
         <div class="p-name">मुगवडी</div>
         <div class="p-desc">परंपरागत मुगवडी — कुरकुरीत, पातळ आणि खमंग!</div>
         <div class="p-feats">कुरकुरीत • खमंग • ताजी</div>
         <div class="p-price">₹350 <span>/ किलो</span></div>
-        <button class="p-btn" onclick="scrollOrder()">ऑर्डर करा</button>
+        <div class="p-btn-wrap">
+          <button class="p-btn-add" onclick="addToCart('मुगवडी',350,'kg','🍘','snacks',this)">+ कार्टमध्ये टाका</button>
+          <div class="p-qty-ctrl" id="qc-मुगवडी">
+            <button class="p-qty-minus" onclick="changeQty('मुगवडी',-0.5)">−</button>
+            <span class="p-qty-disp" id="qd-मुगवडी">0.5 kg</span>
+            <button class="p-qty-plus" onclick="changeQty('मुगवडी',0.5)">+</button>
+          </div>
+        </div>
       </div>
     </div>
 
     <div class="p-card sr" data-cat="snacks">
       <div class="p-card-top"></div>
+      <div class="p-emoji-box" style="background:linear-gradient(135deg,#FFFDE7,#FFF9C4)">🌾</div>
       <div class="p-body">
         <div class="p-cat">स्नॅक्स • Snacks</div>
         <div class="p-name">कुरडई (साचावरची)</div>
         <div class="p-desc">साचावरची कुरडई — खरा घरगुती स्वाद, सोनेरी रंग!</div>
         <div class="p-feats">ताजी • हलवे • कुरकुरीत</div>
         <div class="p-price">₹350 <span>/ किलो</span></div>
-        <button class="p-btn" onclick="scrollOrder()">ऑर्डर करा</button>
+        <div class="p-btn-wrap">
+          <button class="p-btn-add" onclick="addToCart('कुरडई (साचावरची)',350,'kg','🌾','snacks',this)">+ कार्टमध्ये टाका</button>
+          <div class="p-qty-ctrl" id="qc-कुरडई (साचावरची)">
+            <button class="p-qty-minus" onclick="changeQty('कुरडई (साचावरची)',-0.5)">−</button>
+            <span class="p-qty-disp" id="qd-कुरडई (साचावरची)">0.5 kg</span>
+            <button class="p-qty-plus" onclick="changeQty('कुरडई (साचावरची)',0.5)">+</button>
+          </div>
+        </div>
       </div>
     </div>
 
     <div class="p-card sr" data-cat="snacks">
       <div class="p-card-top"></div>
+      <div class="p-emoji-box" style="background:linear-gradient(135deg,#FFF9E6,#FFFDE7)">🌾</div>
       <div class="p-body">
         <div class="p-cat">स्नॅक्स • Snacks</div>
         <div class="p-name">कुरडई (पातळ)</div>
         <div class="p-desc">पातळ कुरडई — सौम्य आणि तेवढीच स्वादिष्ट!</div>
         <div class="p-feats">पातळ • हलवे • कुरकुरीत</div>
         <div class="p-price">₹350 <span>/ किलो</span></div>
-        <button class="p-btn" onclick="scrollOrder()">ऑर्डर करा</button>
+        <div class="p-btn-wrap">
+          <button class="p-btn-add" onclick="addToCart('कुरडई (पातळ)',350,'kg','🌾','snacks',this)">+ कार्टमध्ये टाका</button>
+          <div class="p-qty-ctrl" id="qc-कुरडई (पातळ)">
+            <button class="p-qty-minus" onclick="changeQty('कुरडई (पातळ)',-0.5)">−</button>
+            <span class="p-qty-disp" id="qd-कुरडई (पातळ)">0.5 kg</span>
+            <button class="p-qty-plus" onclick="changeQty('कुरडई (पातळ)',0.5)">+</button>
+          </div>
+        </div>
       </div>
     </div>
 
     <div class="p-card sr" data-cat="snacks">
       <div class="p-card-top"></div>
+      <div class="p-emoji-box" style="background:linear-gradient(135deg,#F3E5F5,#EDE7F6)">🫓</div>
       <div class="p-body">
         <div class="p-cat">स्नॅक्स • Snacks</div>
         <div class="p-name">उडीद मूग पापड</div>
         <div class="p-desc">उडीद आणि मूग डाळीचे पौष्टिक पापड — जेवणात वेगळाच जायका!</div>
         <div class="p-feats">पौष्टिक • ताजे • पारंपरिक</div>
         <div class="p-price">₹450 <span>/ किलो</span></div>
-        <button class="p-btn" onclick="scrollOrder()">ऑर्डर करा</button>
+        <div class="p-btn-wrap">
+          <button class="p-btn-add" onclick="addToCart('उडीद मूग पापड',450,'kg','🫓','snacks',this)">+ कार्टमध्ये टाका</button>
+          <div class="p-qty-ctrl" id="qc-उडीद मूग पापड">
+            <button class="p-qty-minus" onclick="changeQty('उडीद मूग पापड',-0.5)">−</button>
+            <span class="p-qty-disp" id="qd-उडीद मूग पापड">0.5 kg</span>
+            <button class="p-qty-plus" onclick="changeQty('उडीद मूग पापड',0.5)">+</button>
+          </div>
+        </div>
       </div>
     </div>
 
     <div class="p-card sr" data-cat="snacks">
       <div class="p-card-top"></div>
+      <div class="p-emoji-box" style="background:linear-gradient(135deg,#FBE9E7,#FFCCBC)">🍿</div>
       <div class="p-body">
         <div class="p-cat">स्नॅक्स • Snacks</div>
         <div class="p-name">धापोडे</div>
         <div class="p-desc">धापोडे — महाराष्ट्रीय पारंपरिक स्नॅक्स, कुरकुरीत व लाल!</div>
         <div class="p-feats">परंपरागत • कुरकुरीत • लाल</div>
         <div class="p-price">₹450 <span>/ किलो</span></div>
-        <button class="p-btn" onclick="scrollOrder()">ऑर्डर करा</button>
+        <div class="p-btn-wrap">
+          <button class="p-btn-add" onclick="addToCart('धापोडे',450,'kg','🍿','snacks',this)">+ कार्टमध्ये टाका</button>
+          <div class="p-qty-ctrl" id="qc-धापोडे">
+            <button class="p-qty-minus" onclick="changeQty('धापोडे',-0.5)">−</button>
+            <span class="p-qty-disp" id="qd-धापोडे">0.5 kg</span>
+            <button class="p-qty-plus" onclick="changeQty('धापोडे',0.5)">+</button>
+          </div>
+        </div>
       </div>
     </div>
 
     <div class="p-card sr" data-cat="snacks">
       <div class="p-card-top"></div>
+      <div class="p-emoji-box" style="background:linear-gradient(135deg,#FFF8E1,#FFF3CD)">🥔</div>
       <div class="p-body">
         <div class="p-cat">स्नॅक्स • Snacks</div>
         <div class="p-name">बटाटा चिप्स</div>
         <div class="p-desc">ताज्या बटाट्याचे घरगुती कुरकुरीत चिप्स — सर्वांचा आवडता!</div>
         <div class="p-feats">ताजे • कुरकुरीत • स्वादिष्ट</div>
         <div class="p-price">₹450 <span>/ किलो</span></div>
-        <button class="p-btn" onclick="scrollOrder()">ऑर्डर करा</button>
+        <div class="p-btn-wrap">
+          <button class="p-btn-add" onclick="addToCart('बटाटा चिप्स',450,'kg','🥔','snacks',this)">+ कार्टमध्ये टाका</button>
+          <div class="p-qty-ctrl" id="qc-बटाटा चिप्स">
+            <button class="p-qty-minus" onclick="changeQty('बटाटा चिप्स',-0.5)">−</button>
+            <span class="p-qty-disp" id="qd-बटाटा चिप्स">0.5 kg</span>
+            <button class="p-qty-plus" onclick="changeQty('बटाटा चिप्स',0.5)">+</button>
+          </div>
+        </div>
         <div class="p-badge green">Favourite</div>
       </div>
     </div>
 
     <div class="p-card sr" data-cat="snacks">
       <div class="p-card-top"></div>
+      <div class="p-emoji-box" style="background:linear-gradient(135deg,#FFF8DC,#FAEBD7)">✨</div>
       <div class="p-body">
         <div class="p-cat">स्नॅक्स • Snacks</div>
         <div class="p-name">शेवया (तुपाच्या)</div>
         <div class="p-desc">शुद्ध तुपात बनवलेल्या शेवया — सुवर्णाच्या स्वादाची अनुभूती!</div>
         <div class="p-feats">तूप • महक • पारंपरिक</div>
         <div class="p-price">₹600 <span>/ किलो</span></div>
-        <button class="p-btn" onclick="scrollOrder()">ऑर्डर करा</button>
+        <div class="p-btn-wrap">
+          <button class="p-btn-add" onclick="addToCart('शेवया (तुपाच्या)',600,'kg','✨','snacks',this)">+ कार्टमध्ये टाका</button>
+          <div class="p-qty-ctrl" id="qc-शेवया (तुपाच्या)">
+            <button class="p-qty-minus" onclick="changeQty('शेवया (तुपाच्या)',-0.5)">−</button>
+            <span class="p-qty-disp" id="qd-शेवया (तुपाच्या)">0.5 kg</span>
+            <button class="p-qty-plus" onclick="changeQty('शेवया (तुपाच्या)',0.5)">+</button>
+          </div>
+        </div>
         <div class="p-badge">Premium</div>
       </div>
     </div>
 
     <div class="p-card sr" data-cat="snacks">
       <div class="p-card-top"></div>
+      <div class="p-emoji-box" style="background:linear-gradient(135deg,#FAFAFA,#F5F5F5)">🍜</div>
       <div class="p-body">
         <div class="p-cat">स्नॅक्स • Snacks</div>
         <div class="p-name">शेवया (रवा, मशीन)</div>
         <div class="p-desc">रव्याच्या मशीन शेवया — अचूक गुणवत्ता आणि सौम्य स्वाद!</div>
         <div class="p-feats">मशीन • बारीक • कुरकुरीत</div>
         <div class="p-price">₹250 <span>/ किलो</span></div>
-        <button class="p-btn" onclick="scrollOrder()">ऑर्डर करा</button>
+        <div class="p-btn-wrap">
+          <button class="p-btn-add" onclick="addToCart('शेवया (रवा, मशीन)',250,'kg','🍜','snacks',this)">+ कार्टमध्ये टाका</button>
+          <div class="p-qty-ctrl" id="qc-शेवया (रवा, मशीन)">
+            <button class="p-qty-minus" onclick="changeQty('शेवया (रवा, मशीन)',-0.5)">−</button>
+            <span class="p-qty-disp" id="qd-शेवया (रवा, मशीन)">0.5 kg</span>
+            <button class="p-qty-plus" onclick="changeQty('शेवया (रवा, मशीन)',0.5)">+</button>
+          </div>
+        </div>
       </div>
     </div>
 
     <div class="p-card sr" data-cat="snacks">
       <div class="p-card-top"></div>
+      <div class="p-emoji-box" style="background:linear-gradient(135deg,#E3F2FD,#E1F5FE)">🍜</div>
       <div class="p-body">
         <div class="p-cat">स्नॅक्स • Snacks</div>
         <div class="p-name">शेवया (गहू रवा)</div>
         <div class="p-desc">गव्हाच्या रव्याच्या शेवया — आरोग्यकर आणि पौष्टिक पर्याय!</div>
         <div class="p-feats">गहू • पौष्टिक • आरोग्यदायी</div>
         <div class="p-price">₹230 <span>/ किलो</span></div>
-        <button class="p-btn" onclick="scrollOrder()">ऑर्डर करा</button>
+        <div class="p-btn-wrap">
+          <button class="p-btn-add" onclick="addToCart('शेवया (गहू रवा)',230,'kg','🍜','snacks',this)">+ कार्टमध्ये टाका</button>
+          <div class="p-qty-ctrl" id="qc-शेवया (गहू रवा)">
+            <button class="p-qty-minus" onclick="changeQty('शेवया (गहू रवा)',-0.5)">−</button>
+            <span class="p-qty-disp" id="qd-शेवया (गहू रवा)">0.5 kg</span>
+            <button class="p-qty-plus" onclick="changeQty('शेवया (गहू रवा)',0.5)">+</button>
+          </div>
+        </div>
       </div>
     </div>
 
     <div class="p-card sr" data-cat="snacks">
       <div class="p-card-top"></div>
+      <div class="p-emoji-box" style="background:linear-gradient(135deg,#FFF9E6,#FFF3CD)">🥙</div>
       <div class="p-body">
         <div class="p-cat">स्नॅक्स • Snacks</div>
         <div class="p-name">साबुदाणा बटाटा पापड</div>
         <div class="p-desc">साबुदाणा व बटाट्याचे पापड — उपवासाला किंवा कधीही!</div>
         <div class="p-feats">पापड • कुरकुरीत • उपवास</div>
         <div class="p-price">₹250 <span>/ पाकीट</span></div>
-        <button class="p-btn" onclick="scrollOrder()">ऑर्डर करा</button>
+        <div class="p-btn-wrap">
+          <button class="p-btn-add" onclick="addToCart('साबुदाणा बटाटा पापड',250,'pkt','🥙','snacks',this)">+ कार्टमध्ये टाका</button>
+          <div class="p-qty-ctrl" id="qc-साबुदाणा बटाटा पापड">
+            <button class="p-qty-minus" onclick="changeQty('साबुदाणा बटाटा पापड',-1)">−</button>
+            <span class="p-qty-disp" id="qd-साबुदाणा बटाटा पापड">1 pkt</span>
+            <button class="p-qty-plus" onclick="changeQty('साबुदाणा बटाटा पापड',1)">+</button>
+          </div>
+        </div>
       </div>
     </div>
 
     <div class="p-card sr" data-cat="snacks">
       <div class="p-card-top"></div>
+      <div class="p-emoji-box" style="background:linear-gradient(135deg,#FFF3E0,#FFE0B2)">🌀</div>
       <div class="p-body">
         <div class="p-cat">स्नॅक्स • Snacks</div>
         <div class="p-name">साबुदाणा भगर चकली</div>
         <div class="p-desc">साबुदाणा व भगरची पारंपरिक चकली — कुरकुरीत आणि स्वादिष्ट!</div>
         <div class="p-feats">चकली • परंपरागत • घरगुती</div>
         <div class="p-price">₹350 <span>/ किलो</span></div>
-        <button class="p-btn" onclick="scrollOrder()">ऑर्डर करा</button>
+        <div class="p-btn-wrap">
+          <button class="p-btn-add" onclick="addToCart('साबुदाणा भगर चकली',350,'kg','🌀','snacks',this)">+ कार्टमध्ये टाका</button>
+          <div class="p-qty-ctrl" id="qc-साबुदाणा भगर चकली">
+            <button class="p-qty-minus" onclick="changeQty('साबुदाणा भगर चकली',-0.5)">−</button>
+            <span class="p-qty-disp" id="qd-साबुदाणा भगर चकली">0.5 kg</span>
+            <button class="p-qty-plus" onclick="changeQty('साबुदाणा भगर चकली',0.5)">+</button>
+          </div>
+        </div>
       </div>
     </div>
 
     <div class="p-card sr" data-cat="snacks">
       <div class="p-card-top"></div>
+      <div class="p-emoji-box" style="background:linear-gradient(135deg,#FFF8E1,#FFFDE7)">🍡</div>
       <div class="p-body">
         <div class="p-cat">स्नॅक्स • Snacks</div>
         <div class="p-name">सरगुंडे</div>
         <div class="p-desc">सरगुंडे — सर्वांचा प्रिय पारंपरिक कुरकुरीत स्नॅक्स!</div>
         <div class="p-feats">कुरकुरीत • ताजे • गरम</div>
         <div class="p-price">₹400 <span>/ किलो</span></div>
-        <button class="p-btn" onclick="scrollOrder()">ऑर्डर करा</button>
+        <div class="p-btn-wrap">
+          <button class="p-btn-add" onclick="addToCart('सरगुंडे',400,'kg','🍡','snacks',this)">+ कार्टमध्ये टाका</button>
+          <div class="p-qty-ctrl" id="qc-सरगुंडे">
+            <button class="p-qty-minus" onclick="changeQty('सरगुंडे',-0.5)">−</button>
+            <span class="p-qty-disp" id="qd-सरगुंडे">0.5 kg</span>
+            <button class="p-qty-plus" onclick="changeQty('सरगुंडे',0.5)">+</button>
+          </div>
+        </div>
       </div>
     </div>
 
     <div class="p-card sr" data-cat="snacks">
       <div class="p-card-top"></div>
+      <div class="p-emoji-box" style="background:linear-gradient(135deg,#F3E5F5,#EDE7F6)">🌿</div>
       <div class="p-body">
         <div class="p-cat">स्नॅक्स • Snacks</div>
         <div class="p-name">सातूचे पीठ</div>
         <div class="p-desc">सातूचे पौष्टिक पीठ — उन्हाळ्यातील थंडावा देणारे आरोग्यदायी पेय!</div>
         <div class="p-feats">पीठ • पौष्टिक • परंपरागत</div>
         <div class="p-price">₹500 <span>/ किलो</span></div>
-        <button class="p-btn" onclick="scrollOrder()">ऑर्डर करा</button>
+        <div class="p-btn-wrap">
+          <button class="p-btn-add" onclick="addToCart('सातूचे पीठ',500,'kg','🌿','snacks',this)">+ कार्टमध्ये टाका</button>
+          <div class="p-qty-ctrl" id="qc-सातूचे पीठ">
+            <button class="p-qty-minus" onclick="changeQty('सातूचे पीठ',-0.5)">−</button>
+            <span class="p-qty-disp" id="qd-सातूचे पीठ">0.5 kg</span>
+            <button class="p-qty-plus" onclick="changeQty('सातूचे पीठ',0.5)">+</button>
+          </div>
+        </div>
       </div>
     </div>
 
     <div class="p-card sr" data-cat="snacks">
       <div class="p-card-top"></div>
+      <div class="p-emoji-box" style="background:linear-gradient(135deg,#FBE9E7,#FFCCBC)">🍪</div>
       <div class="p-body">
         <div class="p-cat">स्नॅक्स • Snacks</div>
         <div class="p-name">खरोडी</div>
         <div class="p-desc">खरोडी — परंपरागत महाराष्ट्रीय कुरकुरीत खारी स्नॅक्स!</div>
         <div class="p-feats">कुरकुरीत • खारी • स्वादिष्ट</div>
         <div class="p-price">₹400 <span>/ किलो</span></div>
-        <button class="p-btn" onclick="scrollOrder()">ऑर्डर करा</button>
+        <div class="p-btn-wrap">
+          <button class="p-btn-add" onclick="addToCart('खरोडी',400,'kg','🍪','snacks',this)">+ कार्टमध्ये टाका</button>
+          <div class="p-qty-ctrl" id="qc-खरोडी">
+            <button class="p-qty-minus" onclick="changeQty('खरोडी',-0.5)">−</button>
+            <span class="p-qty-disp" id="qd-खरोडी">0.5 kg</span>
+            <button class="p-qty-plus" onclick="changeQty('खरोडी',0.5)">+</button>
+          </div>
+        </div>
       </div>
     </div>
 
     <div class="p-card sr" data-cat="snacks">
       <div class="p-card-top"></div>
+      <div class="p-emoji-box" style="background:linear-gradient(135deg,#E8F5E9,#DCEDC8)">🌱</div>
       <div class="p-body">
         <div class="p-cat">स्नॅक्स • Snacks</div>
         <div class="p-name">मेतकूट</div>
         <div class="p-desc">मेथीचा सुगंध असलेले पारंपरिक मेतकूट — भातासाठी परफेक्ट!</div>
         <div class="p-feats">मेथी • सुगंधी • ताजे</div>
         <div class="p-price">₹400 <span>/ किलो</span></div>
-        <button class="p-btn" onclick="scrollOrder()">ऑर्डर करा</button>
+        <div class="p-btn-wrap">
+          <button class="p-btn-add" onclick="addToCart('मेतकूट',400,'kg','🌱','snacks',this)">+ कार्टमध्ये टाका</button>
+          <div class="p-qty-ctrl" id="qc-मेतकूट">
+            <button class="p-qty-minus" onclick="changeQty('मेतकूट',-0.5)">−</button>
+            <span class="p-qty-disp" id="qd-मेतकूट">0.5 kg</span>
+            <button class="p-qty-plus" onclick="changeQty('मेतकूट',0.5)">+</button>
+          </div>
+        </div>
       </div>
     </div>
 
     <div class="p-card sr" data-cat="snacks">
       <div class="p-card-top"></div>
+      <div class="p-emoji-box" style="background:linear-gradient(135deg,#FFF8E1,#FFF3CD)">🫓</div>
       <div class="p-body">
         <div class="p-cat">स्नॅक्स • Snacks</div>
         <div class="p-name">पापडा</div>
         <div class="p-desc">घरगुती पापडा — जेवणाबरोबर खायला उत्तम, कुरकुरीत व स्वादिष्ट!</div>
         <div class="p-feats">कुरकुरीत • घरगुती • ताजे</div>
         <div class="p-price">₹300 <span>/ किलो</span></div>
-        <button class="p-btn" onclick="scrollOrder()">ऑर्डर करा</button>
+        <div class="p-btn-wrap">
+          <button class="p-btn-add" onclick="addToCart('पापडा',300,'kg','🫓','snacks',this)">+ कार्टमध्ये टाका</button>
+          <div class="p-qty-ctrl" id="qc-पापडा">
+            <button class="p-qty-minus" onclick="changeQty('पापडा',-0.5)">−</button>
+            <span class="p-qty-disp" id="qd-पापडा">0.5 kg</span>
+            <button class="p-qty-plus" onclick="changeQty('पापडा',0.5)">+</button>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -614,6 +1001,19 @@ footer{background:var(--brown-dark);padding:28px 40px 22px;border-top:1px solid 
       🎁 <span id="l-discount">10 किलोवर ऑर्डर केल्यास विशेष सूट मिळेल! Bulk order साठी संपर्क करा.</span>
     </div>
 
+    <!-- CART SUMMARY IN FORM -->
+    <div class="cart-summary-box" id="formCartBox">
+      <div class="csb-title">🛒 निवडलेले Products</div>
+      <div id="formCartItems">
+        <p style="font-size:13px;color:#aaa;text-align:center;padding:10px 0">कोणतेही product निवडले नाही.<br>वर जाऊन product निवडा.</p>
+      </div>
+      <div class="csb-total" id="formCartTotal" style="display:none">
+        <span class="csb-total-label">एकूण रक्कम</span>
+        <span class="csb-total-val" id="formTotalPrice">₹0</span>
+        <span class="csb-total-kg" id="formTotalKg"></span>
+      </div>
+    </div>
+
     <form id="orderForm">
       <div class="form-row">
         <div class="form-group">
@@ -631,47 +1031,54 @@ footer{background:var(--brown-dark);padding:28px 40px 22px;border-top:1px solid 
         <textarea id="f-addr" placeholder="संपूर्ण पत्ता लिहा..." required></textarea>
       </div>
 
-      <div class="form-group">
-        <span class="section-label" id="l-products">📦 उत्पाद निवडा (Multiple Select)</span>
-        <div class="p-select-grid">
+      <!-- PAYMENT METHOD -->
+      <div class="payment-section">
+        <span class="payment-title">💳 Payment Method निवडा *</span>
+        <div class="payment-options">
+          <div class="pay-opt" id="pay-upi" onclick="selectPayment('upi',this)">
+            <input type="radio" name="payment" value="upi">
+            <div class="pay-icon">📱</div>
+            <div class="pay-label">UPI</div>
+            <div class="pay-sublabel">GPay / PhonePe / Paytm</div>
+            <div class="pay-check">✓</div>
+          </div>
+          <div class="pay-opt" id="pay-bank" onclick="selectPayment('bank',this)">
+            <input type="radio" name="payment" value="bank">
+            <div class="pay-icon">🏦</div>
+            <div class="pay-label">Bank Transfer</div>
+            <div class="pay-sublabel">NEFT / IMPS / RTGS</div>
+            <div class="pay-check">✓</div>
+          </div>
+          <div class="pay-opt" id="pay-cod" onclick="selectPayment('cod',this)">
+            <input type="radio" name="payment" value="cod">
+            <div class="pay-icon">💵</div>
+            <div class="pay-label">Cash on Delivery</div>
+            <div class="pay-sublabel">Delivery वेळी द्या</div>
+            <div class="pay-check">✓</div>
+          </div>
+        </div>
 
-          <div class="grp-label">🫙 लोणचे / Pickles</div>
-          <div class="pcheck"><div class="pcheck-top"><input type="checkbox" id="c1" value="आंबा लोणचे - ₹350/kg"><label for="c1">आंबा लोणचे — ₹350/kg</label></div><input class="qty-input" id="c1q" type="number" placeholder="किलो / kg" min="0" step="0.5"></div>
-          <div class="pcheck"><div class="pcheck-top"><input type="checkbox" id="c2" value="लिंबू लोणचे - ₹300/kg"><label for="c2">लिंबू लोणचे — ₹300/kg</label></div><input class="qty-input" id="c2q" type="number" placeholder="किलो / kg" min="0" step="0.5"></div>
-          <div class="pcheck"><div class="pcheck-top"><input type="checkbox" id="c3" value="आवळा लोणचे - ₹350/kg"><label for="c3">आवळा लोणचे — ₹350/kg</label></div><input class="qty-input" id="c3q" type="number" placeholder="किलो / kg" min="0" step="0.5"></div>
-          <div class="pcheck"><div class="pcheck-top"><input type="checkbox" id="c4" value="मिरची लोणचे - ₹350/kg"><label for="c4">मिरची लोणचे — ₹350/kg</label></div><input class="qty-input" id="c4q" type="number" placeholder="किलो / kg" min="0" step="0.5"></div>
-          <div class="pcheck"><div class="pcheck-top"><input type="checkbox" id="c5" value="मिक्स लोणचे - ₹350/kg"><label for="c5">मिक्स लोणचे — ₹350/kg</label></div><input class="qty-input" id="c5q" type="number" placeholder="किलो / kg" min="0" step="0.5"></div>
-          <div class="pcheck"><div class="pcheck-top"><input type="checkbox" id="c6" value="लसूण लोणचे - ₹400/kg"><label for="c6">लसूण लोणचे — ₹400/kg</label></div><input class="qty-input" id="c6q" type="number" placeholder="किलो / kg" min="0" step="0.5"></div>
+        <!-- UPI Details -->
+        <div class="upi-detail" id="upiDetail">
+          <p>UPI ID वर पेमेंट करा:</p>
+          <div class="upi-id">
+            <span id="upiIdText">mauli.udyog@upi</span>
+            <button type="button" class="upi-copy" onclick="copyUPI()">Copy</button>
+          </div>
+          <p style="font-size:11px;color:#888;margin-top:8px">⚠️ Payment केल्यानंतर screenshot WhatsApp वर पाठवा</p>
+        </div>
 
-          <div class="grp-label" style="margin-top:10px">⭐ विशेष पदार्थ / Specials</div>
-          <div class="pcheck"><div class="pcheck-top"><input type="checkbox" id="c7" value="दही मिरची - ₹300/kg"><label for="c7">दही मिरची — ₹300/kg</label></div><input class="qty-input" id="c7q" type="number" placeholder="किलो / kg" min="0" step="0.5"></div>
-          <div class="pcheck"><div class="pcheck-top"><input type="checkbox" id="c8" value="साखर आंबा - ₹350/kg"><label for="c8">साखर आंबा — ₹350/kg</label></div><input class="qty-input" id="c8q" type="number" placeholder="किलो / kg" min="0" step="0.5"></div>
-          <div class="pcheck"><div class="pcheck-top"><input type="checkbox" id="c9" value="आवळा मुरब्बा - ₹400/kg"><label for="c9">आवळा मुरब्बा — ₹400/kg</label></div><input class="qty-input" id="c9q" type="number" placeholder="किलो / kg" min="0" step="0.5"></div>
-          <div class="pcheck"><div class="pcheck-top"><input type="checkbox" id="c10" value="शेंगदाणे चटणी - ₹400/kg"><label for="c10">शेंगदाणे चटणी — ₹400/kg</label></div><input class="qty-input" id="c10q" type="number" placeholder="किलो / kg" min="0" step="0.5"></div>
-          <div class="pcheck"><div class="pcheck-top"><input type="checkbox" id="c11" value="वऱ्हाडी लाल ठेचा - ₹350/kg"><label for="c11">वऱ्हाडी लाल ठेचा — ₹350/kg</label></div><input class="qty-input" id="c11q" type="number" placeholder="किलो / kg" min="0" step="0.5"></div>
-
-          <div class="grp-label" style="margin-top:10px">🍘 स्नॅक्स / Snacks</div>
-          <div class="pcheck"><div class="pcheck-top"><input type="checkbox" id="c12" value="मुगवडी - ₹350/kg"><label for="c12">मुगवडी — ₹350/kg</label></div><input class="qty-input" id="c12q" type="number" placeholder="किलो / kg" min="0" step="0.5"></div>
-          <div class="pcheck"><div class="pcheck-top"><input type="checkbox" id="c13" value="कुरडई (साचावरची) - ₹350/kg"><label for="c13">कुरडई (साचावरची) — ₹350/kg</label></div><input class="qty-input" id="c13q" type="number" placeholder="किलो / kg" min="0" step="0.5"></div>
-          <div class="pcheck"><div class="pcheck-top"><input type="checkbox" id="c14" value="कुरडई (पातळ) - ₹350/kg"><label for="c14">कुरडई (पातळ) — ₹350/kg</label></div><input class="qty-input" id="c14q" type="number" placeholder="किलो / kg" min="0" step="0.5"></div>
-          <div class="pcheck"><div class="pcheck-top"><input type="checkbox" id="c15" value="उडीद मूग पापड - ₹450/kg"><label for="c15">उडीद मूग पापड — ₹450/kg</label></div><input class="qty-input" id="c15q" type="number" placeholder="किलो / kg" min="0" step="0.5"></div>
-          <div class="pcheck"><div class="pcheck-top"><input type="checkbox" id="c16" value="धापोडे - ₹450/kg"><label for="c16">धापोडे — ₹450/kg</label></div><input class="qty-input" id="c16q" type="number" placeholder="किलो / kg" min="0" step="0.5"></div>
-          <div class="pcheck"><div class="pcheck-top"><input type="checkbox" id="c17" value="बटाटा चिप्स - ₹450/kg"><label for="c17">बटाटा चिप्स — ₹450/kg</label></div><input class="qty-input" id="c17q" type="number" placeholder="किलो / kg" min="0" step="0.5"></div>
-          <div class="pcheck"><div class="pcheck-top"><input type="checkbox" id="c18" value="शेवया (तुपाच्या) - ₹600/kg"><label for="c18">शेवया (तुपाच्या) — ₹600/kg</label></div><input class="qty-input" id="c18q" type="number" placeholder="किलो / kg" min="0" step="0.5"></div>
-          <div class="pcheck"><div class="pcheck-top"><input type="checkbox" id="c19" value="शेवया (रवा, मशीन) - ₹250/kg"><label for="c19">शेवया (रवा, मशीन) — ₹250/kg</label></div><input class="qty-input" id="c19q" type="number" placeholder="किलो / kg" min="0" step="0.5"></div>
-          <div class="pcheck"><div class="pcheck-top"><input type="checkbox" id="c20" value="शेवया (गहू रवा) - ₹230/kg"><label for="c20">शेवया (गहू रवा) — ₹230/kg</label></div><input class="qty-input" id="c20q" type="number" placeholder="किलो / kg" min="0" step="0.5"></div>
-          <div class="pcheck"><div class="pcheck-top"><input type="checkbox" id="c21" value="साबुदाणा बटाटा पापड - ₹250/pkt"><label for="c21">साबुदाणा बटाटा पापड — ₹250/पाकीट</label></div><input class="qty-input" id="c21q" type="number" placeholder="पाकीट / pkt" min="0" step="1"></div>
-          <div class="pcheck"><div class="pcheck-top"><input type="checkbox" id="c22" value="साबुदाणा भगर चकली - ₹350/kg"><label for="c22">साबुदाणा भगर चकली — ₹350/kg</label></div><input class="qty-input" id="c22q" type="number" placeholder="किलो / kg" min="0" step="0.5"></div>
-          <div class="pcheck"><div class="pcheck-top"><input type="checkbox" id="c23" value="सरगुंडे - ₹400/kg"><label for="c23">सरगुंडे — ₹400/kg</label></div><input class="qty-input" id="c23q" type="number" placeholder="किलो / kg" min="0" step="0.5"></div>
-          <div class="pcheck"><div class="pcheck-top"><input type="checkbox" id="c24" value="सातूचे पीठ - ₹500/kg"><label for="c24">सातूचे पीठ — ₹500/kg</label></div><input class="qty-input" id="c24q" type="number" placeholder="किलो / kg" min="0" step="0.5"></div>
-          <div class="pcheck"><div class="pcheck-top"><input type="checkbox" id="c25" value="खरोडी - ₹400/kg"><label for="c25">खरोडी — ₹400/kg</label></div><input class="qty-input" id="c25q" type="number" placeholder="किलो / kg" min="0" step="0.5"></div>
-          <div class="pcheck"><div class="pcheck-top"><input type="checkbox" id="c26" value="मेतकूट - ₹400/kg"><label for="c26">मेतकूट — ₹400/kg</label></div><input class="qty-input" id="c26q" type="number" placeholder="किलो / kg" min="0" step="0.5"></div>
-          <div class="pcheck"><div class="pcheck-top"><input type="checkbox" id="c27" value="पापडा - ₹300/kg"><label for="c27">पापडा — ₹300/kg</label></div><input class="qty-input" id="c27q" type="number" placeholder="किलो / kg" min="0" step="0.5"></div>
-
+        <!-- Bank Details -->
+        <div class="bank-detail" id="bankDetail">
+          <div class="bank-row"><span>Account Name</span><span>माऊली गृहउद्योग</span></div>
+          <div class="bank-row"><span>Account No.</span><span>XXXXXXXXXXXX</span></div>
+          <div class="bank-row"><span>IFSC Code</span><span>XXXXXX</span></div>
+          <div class="bank-row"><span>Bank</span><span>Bank of Maharashtra</span></div>
+          <p style="font-size:11px;color:#888;margin-top:8px">⚠️ Transfer केल्यानंतर UTR number WhatsApp वर पाठवा</p>
         </div>
       </div>
 
-      <div class="form-group" style="margin-top:20px">
+      <div class="form-group">
         <label id="l-note">विशेष सूचना (Optional)</label>
         <textarea id="f-note" placeholder="कोणतीही विशेष विनंती..."></textarea>
       </div>
@@ -718,26 +1125,220 @@ footer{background:var(--brown-dark);padding:28px 40px 22px;border-top:1px solid 
 </footer>
 
 <script>
-/* ── LANGUAGE ── */
+/* ══════════════════════════════════════
+   CART STATE
+══════════════════════════════════════ */
+let cart = {}; // { name: { name, price, qty, unit, emoji } }
+let selectedPayment = '';
+
+/* ══════════════════════════════════════
+   ADD TO CART
+══════════════════════════════════════ */
+function addToCart(name, price, unit, emoji, cat, btn) {
+  if (cart[name]) {
+    // already in cart — scroll to order
+    scrollOrder();
+    return;
+  }
+  const step = unit === 'pkt' ? 1 : 0.5;
+  cart[name] = { name, price, qty: step, unit, emoji };
+  btn.textContent = '✓ कार्टमध्ये आहे';
+  btn.classList.add('in-cart');
+  const qcEl = document.getElementById('qc-' + name);
+  if (qcEl) {
+    qcEl.classList.add('show');
+    document.getElementById('qd-' + name).textContent = step + ' ' + unit;
+  }
+  updateCart();
+  showCartFab();
+  // Brief pulse on FAB
+  const fab = document.getElementById('cartFab');
+  fab.style.transform = 'scale(1.15)';
+  setTimeout(() => fab.style.transform = '', 200);
+}
+
+function changeQty(name, delta) {
+  if (!cart[name]) return;
+  const step = cart[name].unit === 'pkt' ? 1 : 0.5;
+  const min = step;
+  cart[name].qty = Math.max(min, Math.round((cart[name].qty + delta) * 100) / 100);
+  document.getElementById('qd-' + name).textContent = cart[name].qty + ' ' + cart[name].unit;
+  updateCart();
+}
+
+function removeFromCart(name) {
+  if (!cart[name]) return;
+  const btn = document.querySelector(`button[onclick*="addToCart('${name}'"]`);
+  if (btn) {
+    btn.textContent = '+ कार्टमध्ये टाका';
+    btn.classList.remove('in-cart');
+  }
+  const qcEl = document.getElementById('qc-' + name);
+  if (qcEl) qcEl.classList.remove('show');
+  delete cart[name];
+  updateCart();
+  if (Object.keys(cart).length === 0) {
+    document.getElementById('cartFab').style.display = 'none';
+  }
+}
+
+/* ══════════════════════════════════════
+   UPDATE CART UI
+══════════════════════════════════════ */
+function updateCart() {
+  const keys = Object.keys(cart);
+  const count = keys.length;
+  let totalPrice = 0;
+  let totalKg = 0;
+
+  // Cart drawer
+  const body = document.getElementById('cartBody');
+  const empty = document.getElementById('cartEmpty');
+  const footer = document.getElementById('cartFooter');
+
+  if (count === 0) {
+    empty.style.display = '';
+    footer.style.display = 'none';
+    body.innerHTML = '';
+    body.appendChild(empty);
+  } else {
+    empty.style.display = 'none';
+    footer.style.display = '';
+    body.innerHTML = '';
+
+    keys.forEach(k => {
+      const item = cart[k];
+      const itemTotal = item.price * item.qty;
+      totalPrice += itemTotal;
+      if (item.unit === 'kg') totalKg += item.qty;
+
+      const el = document.createElement('div');
+      el.className = 'cart-item';
+      el.innerHTML = `
+        <div class="cart-item-emoji">${item.emoji}</div>
+        <div class="cart-item-info">
+          <div class="cart-item-name">${item.name}</div>
+          <div class="cart-item-price">₹${item.price}/${item.unit}</div>
+          <div class="cart-qty-ctrl">
+            <button class="cart-qty-btn" onclick="cartChangeQty('${k}',-${item.unit==='pkt'?1:0.5})">−</button>
+            <span class="cart-qty-val">${item.qty} <span class="cart-qty-unit">${item.unit}</span></span>
+            <button class="cart-qty-btn" onclick="cartChangeQty('${k}',${item.unit==='pkt'?1:0.5})">+</button>
+          </div>
+        </div>
+        <div class="cart-item-total">₹${itemTotal.toLocaleString('en-IN')}</div>
+        <button class="cart-item-remove" onclick="removeFromCart('${k}')">✕</button>
+      `;
+      body.appendChild(el);
+    });
+  }
+
+  // Cart footer totals
+  document.getElementById('cTotalItems').textContent = count + ' items';
+  document.getElementById('cTotalKg').textContent = totalKg > 0 ? totalKg.toFixed(1) + ' kg' : '—';
+  document.getElementById('cTotalPrice').textContent = '₹' + totalPrice.toLocaleString('en-IN');
+  const discRow = document.getElementById('cDiscRow');
+  if (totalKg >= 10) discRow.style.display = ''; else discRow.style.display = 'none';
+
+  // FAB count
+  document.getElementById('cartFabCount').textContent = count;
+  document.getElementById('cartFabText').textContent = count > 0 ? `कार्ट (${count})` : 'कार्ट';
+
+  // Form cart summary
+  updateFormCartSummary(keys, totalPrice, totalKg);
+}
+
+function cartChangeQty(name, delta) {
+  changeQty(name, delta);
+  // also update display in card
+  const qcEl = document.getElementById('qc-' + name);
+  if (qcEl && cart[name]) {
+    document.getElementById('qd-' + name).textContent = cart[name].qty + ' ' + cart[name].unit;
+  }
+}
+
+function updateFormCartSummary(keys, totalPrice, totalKg) {
+  const itemsDiv = document.getElementById('formCartItems');
+  const totalDiv = document.getElementById('formCartTotal');
+  if (keys.length === 0) {
+    itemsDiv.innerHTML = '<p style="font-size:13px;color:#aaa;text-align:center;padding:10px 0">कोणतेही product निवडले नाही.<br>वर जाऊन product निवडा.</p>';
+    totalDiv.style.display = 'none';
+    return;
+  }
+  let html = '';
+  keys.forEach(k => {
+    const item = cart[k];
+    html += `<div class="csb-item">
+      <span class="csb-item-name">${item.emoji} ${item.name}</span>
+      <span class="csb-item-val">${item.qty} ${item.unit} × ₹${item.price} = ₹${(item.price*item.qty).toLocaleString('en-IN')}</span>
+    </div>`;
+  });
+  itemsDiv.innerHTML = html;
+  totalDiv.style.display = '';
+  document.getElementById('formTotalPrice').textContent = '₹' + totalPrice.toLocaleString('en-IN');
+  const kgSpan = document.getElementById('formTotalKg');
+  kgSpan.textContent = totalKg > 0 ? `(${totalKg.toFixed(1)} kg)` : '';
+}
+
+/* ══════════════════════════════════════
+   CART DRAWER
+══════════════════════════════════════ */
+function openCart() {
+  document.getElementById('cartOverlay').classList.add('open');
+  document.getElementById('cartDrawer').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeCart() {
+  document.getElementById('cartOverlay').classList.remove('open');
+  document.getElementById('cartDrawer').classList.remove('open');
+  document.body.style.overflow = '';
+}
+function showCartFab() {
+  document.getElementById('cartFab').style.display = 'flex';
+}
+function cartToOrder() {
+  closeCart();
+  scrollOrder();
+}
+
+/* ══════════════════════════════════════
+   PAYMENT METHOD
+══════════════════════════════════════ */
+function selectPayment(type, el) {
+  document.querySelectorAll('.pay-opt').forEach(o => o.classList.remove('selected'));
+  el.classList.add('selected');
+  selectedPayment = type;
+  document.getElementById('upiDetail').classList.toggle('show', type === 'upi');
+  document.getElementById('bankDetail').classList.toggle('show', type === 'bank');
+}
+function copyUPI() {
+  const id = document.getElementById('upiIdText').textContent;
+  navigator.clipboard.writeText(id).then(() => {
+    const btn = document.querySelector('.upi-copy');
+    btn.textContent = 'Copied!';
+    setTimeout(() => btn.textContent = 'Copy', 2000);
+  });
+}
+
+/* ══════════════════════════════════════
+   LANGUAGE
+══════════════════════════════════════ */
 const T = {
   mr:{
     name:'आपले नाव *',phone:'मोबाईल नंबर *',addr:'वितरण पत्ता *',
-    products:'📦 उत्पाद निवडा (Multiple Select करा)',
     note:'विशेष सूचना (Optional)',submit:'WhatsApp वर ऑर्डर पाठवा',
     discount:'10 किलोवर ऑर्डर केल्यास विशेष सूट मिळेल! Bulk order साठी संपर्क करा.',
     namePH:'पूर्ण नाव दाखल करा',phonePH:'10 अंकी नंबर',addrPH:'संपूर्ण पत्ता लिहा...',notePH:'कोणतीही विशेष विनंती...',
-    noP:'कृपया किमान एक उत्पाद निवडा!',noQ:'निवडलेल्या सर्व उत्पादांचे प्रमाण भरा!',
-    hdr:'🍲 माऊली वेबसाइटवरून नवीन ऑर्डर',c:'ग्राहक तपशील',o:'ऑर्डर तपशील',d:'वितरण पत्ता',s:'विशेष सूचना',
+    noP:'कृपया किमान एक product cart मध्ये टाका!',noPayment:'कृपया Payment Method निवडा!',
+    hdr:'🍲 माऊली वेबसाइटवरून नवीन ऑर्डर',c:'ग्राहक तपशील',o:'ऑर्डर तपशील',d:'वितरण पत्ता',s:'विशेष सूचना',p:'Payment Method',
     tot:'एकूण',disc_msg:'🎁 विशेष सूट लागू (10 kg+)',thanks:'ऑर्डर WhatsApp वर पाठवला! धन्यवाद! 🙏'
   },
   en:{
     name:'Your Name *',phone:'Mobile Number *',addr:'Delivery Address *',
-    products:'📦 Select Products (Multiple Select)',
     note:'Special Instructions (Optional)',submit:'Send Order via WhatsApp',
     discount:'Special discount on orders above 10 kg! Contact us for bulk pricing.',
     namePH:'Enter your full name',phonePH:'10 digit mobile number',addrPH:'Write your full delivery address...',notePH:'Any special request...',
-    noP:'Please select at least one product!',noQ:'Please enter quantity for all selected products!',
-    hdr:'🍲 New Order from Mauli Website',c:'Customer Details',o:'Order Details',d:'Delivery Address',s:'Special Instructions',
+    noP:'Please add at least one product to cart!',noPayment:'Please select a Payment Method!',
+    hdr:'🍲 New Order from Mauli Website',c:'Customer Details',o:'Order Details',d:'Delivery Address',s:'Special Instructions',p:'Payment Method',
     tot:'Total',disc_msg:'🎁 Special Discount Applicable (10 kg+)',thanks:'Order sent on WhatsApp! Thank you! 🙏'
   }
 };
@@ -750,7 +1351,6 @@ function setLang(l){
   document.getElementById('l-name').textContent=t.name;
   document.getElementById('l-phone').textContent=t.phone;
   document.getElementById('l-addr').textContent=t.addr;
-  document.getElementById('l-products').textContent=t.products;
   document.getElementById('l-note').textContent=t.note;
   document.getElementById('l-submit').textContent=t.submit;
   document.getElementById('l-discount').textContent=t.discount;
@@ -760,7 +1360,9 @@ function setLang(l){
   document.getElementById('f-note').placeholder=t.notePH;
 }
 
-/* ── FILTER ── */
+/* ══════════════════════════════════════
+   FILTER
+══════════════════════════════════════ */
 function filterCat(cat, el){
   document.querySelectorAll('.cat-tab').forEach(t => t.classList.remove('active'));
   el.classList.add('active');
@@ -769,44 +1371,62 @@ function filterCat(cat, el){
   });
 }
 
-/* ── SCROLL TO ORDER ── */
+/* ══════════════════════════════════════
+   SCROLL TO ORDER
+══════════════════════════════════════ */
 function scrollOrder(){document.getElementById('order').scrollIntoView({behavior:'smooth'})}
 
-/* ── FORM SUBMIT ── */
+/* ══════════════════════════════════════
+   FORM SUBMIT
+══════════════════════════════════════ */
 document.getElementById('orderForm').addEventListener('submit',function(e){
   e.preventDefault();
   const t=T[lang];
+  const keys = Object.keys(cart);
+  if (!keys.length) { alert(t.noP); return; }
+  if (!selectedPayment) { alert(t.noPayment); return; }
+
   const name=document.getElementById('f-name').value.trim();
   const phone=document.getElementById('f-phone').value.trim();
   const addr=document.getElementById('f-addr').value.trim();
   const note=document.getElementById('f-note').value.trim();
-  const checks=document.querySelectorAll('.p-select-grid input[type=checkbox]:checked');
-  if(!checks.length){alert(t.noP);return;}
-  let lines='',total=0,err=false;
-  checks.forEach(cb=>{
-    const qEl=document.getElementById(cb.id+'q');
-    const qty=parseFloat(qEl.value||0);
-    if(!qty){err=true;qEl.style.borderColor='#E53935';return;}
-    qEl.style.borderColor='#ddd';
-    lines+=`  🛒 ${cb.value} × ${qty}\n`;
-    total+=qty;
+
+  let lines='', totalPrice=0, totalKg=0;
+  keys.forEach(k => {
+    const item = cart[k];
+    const itemTotal = item.price * item.qty;
+    lines += `  ${item.emoji} ${item.name} × ${item.qty} ${item.unit} = ₹${itemTotal.toLocaleString('en-IN')}\n`;
+    totalPrice += itemTotal;
+    if (item.unit === 'kg') totalKg += item.qty;
   });
-  if(err){alert(t.noQ);return;}
-  const disc=total>=10?`\n\n${t.disc_msg}`:'';
-  const msg=
+
+  const paymentLabel = selectedPayment === 'upi' ? 'UPI (GPay/PhonePe/Paytm)' : selectedPayment === 'bank' ? 'Bank Transfer' : 'Cash on Delivery';
+  const disc = totalKg >= 10 ? `\n\n${t.disc_msg}` : '';
+
+  const msg =
     `${t.hdr}\n\n`+
     `*${t.c}:*\n📝 Name: ${name}\n📱 Phone: ${phone}\n\n`+
-    `*${t.o}:*\n${lines}\n📦 ${t.tot}: ${total} kg\n\n`+
+    `*${t.o}:*\n${lines}\n`+
+    `📦 ${t.tot}: ${totalKg > 0 ? totalKg.toFixed(1)+' kg | ' : ''}₹${totalPrice.toLocaleString('en-IN')}\n\n`+
+    `*${t.p}:* ${paymentLabel}\n\n`+
     `*${t.d}:*\n📍 ${addr}`+
     (note?`\n\n*${t.s}:*\n${note}`:'')+disc;
+
   window.open(`https://api.whatsapp.com/send?phone=919309321052&text=${encodeURIComponent(msg)}`,'_blank');
+
+  // Clear cart
+  keys.forEach(k => removeFromCart(k));
   this.reset();
+  selectedPayment = '';
+  document.querySelectorAll('.pay-opt').forEach(o => o.classList.remove('selected'));
+  document.getElementById('upiDetail').classList.remove('show');
+  document.getElementById('bankDetail').classList.remove('show');
   alert(t.thanks);
 });
 
-
-
-/* ── HEADER SHADOW ── */
+/* ══════════════════════════════════════
+   HEADER SHADOW
+══════════════════════════════════════ */
 window.addEventListener('scroll',()=>{
   document.getElementById('mainHeader').style.boxShadow=
     window.scrollY>20?'0 4px 24px rgba(0,0,0,.45)':'none';
