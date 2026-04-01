@@ -79,7 +79,7 @@
         .p-card{background:#fff;border-radius:16px;overflow:hidden;border:1px solid rgba(212,175,55,0.2);box-shadow:0 4px 20px rgba(0,0,0,0.07);transition:all 0.35s;cursor:pointer;position:relative;}
         .p-card:hover{transform:translateY(-8px);box-shadow:0 20px 50px rgba(139,0,0,0.15);border-color:var(--gold);}
         .p-card.in-cart{border-color:var(--green);background:#f0fff4;}
-        .p-img{height:160px;display:flex;align-items:center;justify-content:center;font-size:60px;position:relative;}
+       /* .p-img{height:160px;display:flex;align-items:center;justify-content:center;font-size:60px;position:relative;} */
         .p-badge-tag{position:absolute;top:12px;right:12px;background:var(--gold);color:var(--maroon);font-size:9px;font-weight:700;padding:4px 10px;border-radius:10px;letter-spacing:1px;text-transform:uppercase;}
         .p-body{padding:20px;}
         .p-name{font-family:'Tiro Devanagari Marathi',serif;font-size:19px;font-weight:700;color:var(--maroon);margin-bottom:4px;}
@@ -110,7 +110,7 @@
         .cart-empty .icon{font-size:60px;margin-bottom:15px;}
         .cart-empty p{font-size:14px;line-height:1.8;}
         .cart-item{display:flex;gap:14px;padding:16px 0;border-bottom:1px solid #f0e8d0;align-items:flex-start;}
-        .cart-item-icon{width:56px;height:56px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:28px;flex-shrink:0;}
+     /*   .cart-item-icon{width:56px;height:56px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:28px;flex-shrink:0;}*/
         .cart-item-info{flex:1;}
         .cart-item-name{font-weight:700;color:var(--maroon);font-size:14px;margin-bottom:3px;font-family:'Tiro Devanagari Marathi',serif;}
         .cart-item-price{font-size:12px;color:#888;margin-bottom:10px;}
@@ -377,20 +377,20 @@ function renderQtyCtrl(id) {
     const qty = cart[id] || 0;
     const p = PRODUCTS.find(x => x.id === id);
     return `<div class="qty-ctrl">
-        <button onclick="changeQty('${id}',-0.5)">−</button>
-        <span>${qty} ${p.unit}</span>
-        <button onclick="changeQty('${id}',+0.5)">+</button>
+        <button onclick="changeQty('${id}',- 1)">−</button>
+        <span>${qty}</span>
+        <button onclick="changeQty('${id}',+ 1)">+</button>
     </div>`;
 }
 
 function addToCart(id) {
-    cart[id] = 0.5;
+    cart[id] = 1;
     updateAll();
 }
 
 function changeQty(id, delta) {
     const p = PRODUCTS.find(x => x.id === id);
-    const step = p.unit === 'पाकीट' ? 1 : 0.5;
+    const step = p.unit === 'पाकीट' ? 1 : 1;
     cart[id] = Math.max(0, (cart[id] || 0) + delta);
     if (cart[id] === 0) delete cart[id];
     updateAll();
@@ -443,15 +443,14 @@ function renderCartDrawer() {
         totalKg += qty;
         return `
         <div class="cart-item">
-            <div class="cart-item-icon" style="background:${p.bg}">${p.emoji}</div>
             <div class="cart-item-info">
                 <div class="cart-item-name">${p.name}</div>
                 <div class="cart-item-price"><span class="amt-rupee" style="color:var(--saffron)">₹</span><span class="amt-num" style="color:var(--saffron)">${p.price}</span><span class="amt-unit">/${p.unit}</span></div>
                 <div class="cart-item-ctrl">
-                    <button class="cic-btn" onclick="changeQty('${id}',-0.5)">−</button>
+                    <button class="cic-btn" onclick="changeQty('${id}',-1)">−</button>
                     <span class="cic-qty">${qty}</span>
-                    <span class="cic-unit">${p.unit}</span>
-                    <button class="cic-btn" onclick="changeQty('${id}',+0.5)">+</button>
+           
+                    <button class="cic-btn" onclick="changeQty('${id}',+1)">+</button>
                 </div>
             </div>
             <div>
